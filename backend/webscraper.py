@@ -1,8 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
+
+class ParariusListing():
+    def __init__(self, url, houseName, houseLocation, housePrice):
+        self.url = url
+        self.houseName = houseName
+        self.houseLocation = houseLocation
+        self.housePrice = housePrice
+
 def RetrieveParariusHTML(city,priceLow, priceHigh, pageNr):
     return requests.get(f"https://www.pararius.com/apartments/{city}/{priceLow}-{priceHigh}/page-{pageNr}")
+
 
 def GetParariusSoups(city,priceLow,priceHigh):
     results = []
@@ -16,10 +25,20 @@ def GetParariusSoups(city,priceLow,priceHigh):
     return soups
 
 def ScrapeParariusInformation(city, priceLow, priceHigh):
-    soups = len(GetParariusSoups(city, priceLow, priceHigh))
-    listings = []
+    soups = GetParariusSoups(city, priceLow, priceHigh)
+    rawlistings = []
+    completelistings = []
 
-    for i in range(soups):
-        listings.append(soups[i])
+    for i in range(len(soups)):
+        rawlistings.append(soups[i].find_all("li", attrs = {"class" : "search-list__item search-list__item--listing"}))
+    
+    return rawlistings
 
-print(GetParariusSoups("Eindhoven", "0", "3000"))
+def GetOneParariusSoup(city, priceLow, priceHigh):
+    result = RetrieveParariusHTML(city,priceLow, priceHigh, 1)
+    soup = BeautifulSoup(result.text, "html.parser")
+    listWithResults = soup.find("ul", attrs = {"class" : "search-list"})
+    return listWithResults
+
+
+print(ScrapeParariusInformation("eindhoven", 100, 1000))
