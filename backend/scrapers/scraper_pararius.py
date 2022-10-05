@@ -4,7 +4,6 @@ import re
 
 def furnished_regex(input_text):
     return re.findall(r'<li class="illustrated-features__item illustrated-features__item--interior">[a-zA-Z]+</li>',input_text)
-    return "Unknown"
 
 class ParariusListing():
     def __init__(self, url, houseName, houseLocation, housePrice, houseType, houseMetrics, nrOfRooms, interior):
@@ -36,6 +35,7 @@ def GetRawListings(city, priceLow, priceHigh):
     for i in range(len(soups)):
         rawlistings.append(soups[i].find_all("li", attrs = {"class" : "search-list__item search-list__item--listing"}))
     return rawlistings
+
 
 
 def GetProcessedListings(city, priceLow, priceHigh):

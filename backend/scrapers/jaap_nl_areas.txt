@@ -1,0 +1,16 @@
+noord+brabant/zuidoost-noord-brabant/eindhoven/
+noord+brabant/midden-noord-brabant/tilburg/
+limburg/noord-limburg/venlo/
+utrecht/utrecht/utrecht/
+overijssel/twente/enschede/
+noord+holland/agglomeratie+haarlem/haarlem/
+utrecht/utrecht/amersfoort/
+overijssel/noord-overijssel/zwolle/
+utrecht/utrecht/amersfoort/
+flevoland/flevoland/almere/
+noord+brabant/west-noord-brabant/breda/
+gelderland/arnhem+en+nijmegen/nijmegen/
+noord+holland/groot-amsterdam/amsterdam/
+zuid+holland/groot-rijnmond/rotterdam/
+zuid+holland/agglomeratie+'s-gravenhage/'s-gravenhage/
+groningen/overig+groningen/groningen/
