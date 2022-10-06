@@ -5,16 +5,12 @@ jaap_listing_urls = []
 
 
 class JaapListing():
-    def __init__(self, url, houseName, houseLocation, housePrice,houseType,houseMetrics, nrOfRooms,interior, option):
+    def __init__(self, url, houseName, houseLocation, housePrice, propertyFeatures):
         self.url = url
         self.houseName = houseName
         self.houseLocation = houseLocation
         self.housePrice = housePrice
-        self.houseType = houseType
-        self.houseMetrics = houseMetrics
-        self.nrOfRooms = nrOfRooms
-        self.interior = interior
-        self.option = option
+        self.propertyFeatures = propertyFeatures
 
 def get_jaap_urls():
     with open('jaap_nl_areas.txt') as my_file:
@@ -59,11 +55,11 @@ def get_raw_jaap_listings(city, priceLow, priceHigh, km):
     return rawlistings
 
 def TestSoup():
-    types_of_houses = ["Eengezinswoning", "Benedenwoning", "Kamer", "Appartement","Bovenwoning", "Garage","Woning", "Studio"]
+    jaap_listings = []
     result = BeautifulSoup(get_jaap_html("eindhoven", 100, 1000, 10, 1).text, "html.parser")
     newResult = result.find('div', attrs={'class': 'property-list'})
     listings = newResult.find_all('div', attrs= {'class' : 'property'})
-
+    all_features = []
     for i in range(len(listings)):
         if listings[i].find('a', attrs = {'class': 'property-inner'}) is not None:
             url = listings[i].find('a', attrs = {'class' : 'property-inner'}, href = True)['href']
@@ -72,30 +68,28 @@ def TestSoup():
             property_name = property_info_list.find('h2', attrs = {'class' : 'property-address-street'}).text
             property_location = property_info_list.find('div', attrs = {'class' : 'property-address-zipcity'}).text
             property_price = property_info_list.find('div', attrs = {'class' : 'property-price'}).text
-            property_features = property_info_list.find_all('div', attrs = {'class': 'property-feature'})
-            for i in range(len(property_features)):
-                if (property_features[i].text.find("kamer") != -1):
-                    property_room_amount = property_features[i]
-                elif (property_features[i].text.find("m²") != -1):
-                    property_size = property_features[i]
-                else:
-                    for k in range(len(types_of_houses)):
-                        if str(property_features[i].text).find(str(types_of_houses[k]) != -1):
-                            property_type = property_features[i].text
-#Eengezinswoning, Benedenwoning, Kamer, Appartement,Bovenwoning, Garage,Woning, Studio
-        print(str(url))
-        print(property_name)
-        print(property_location)
-        print(property_price)
-        print(str(property_type))
-        print(property_room_amount)
-        print(property_size)
+            if (property_info_list.find_all('div', attrs = {'class': 'property-feature'}) != None):
+                property_features = property_info_list.find_all('div', attrs = {'class': 'property-feature'})
+                for i in range(len(property_features)):
+                    all_features.append(property_features[i].text)
+                propertyFeatures = all_features
+        jaap_listings.append(
+            JaapListing(
+                url,
+                property_name,
+                property_location,
+                property_price,
+                propertyFeatures
+            )
+        )
+    return jaap_listings
 
-    
-    #return listings
-    #listings = []
-    #listings.append(result.find_all("div", attrs={'class' : 'property'}))
 
-TestSoup()
-
-#print(get_raw_jaap_listings("eindhoven", 100, 1000, 10))
+jaap_listings = TestSoup()
+for i in range(len(jaap_listings)):
+    print("-----------------------------------------------------------------------------------------------------")
+    print(jaap_listings[i].url)
+    print(jaap_listings[i].houseName)
+    print(jaap_listings[i].houseLocation)
+    print(jaap_listings[i].housePrice)
+    print(jaap_listings[i].propertyFeatures)
