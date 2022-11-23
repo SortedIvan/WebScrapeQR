@@ -91,15 +91,15 @@ def get_all_property_prices(city, priceLow, priceHigh, km):
     return prices
 
 
-# all_results = strip_all_results("eindhoven", 100, 2000, 15)
-# # strip_all_results()
-# for i in range(len(all_results)):
-#     for k in range(len(all_results[i])):
-#         print("-----------------------------------------------------------------------------------------------------")
-#         print(all_results[i][k])
-#         print(all_results[i][k].url)
-#         print(all_results[i][k].houseName)
-#         print(all_results[i][k].houseLocation)
-#         print(all_results[i][k].housePrice)
-#         print(all_results[i][k].propertyFeatures)
+all_results = strip_all_results("eindhoven", 100, 2000, 15)
+# strip_all_results()
+for i in range(len(all_results)):
+    for k in range(len(all_results[i])):
+        print("-----------------------------------------------------------------------------------------------------")
+        print(all_results[i][k])
+        print(all_results[i][k].url)
+        print(all_results[i][k].houseName)
+        print(all_results[i][k].houseLocation)
+        print(all_results[i][k].housePrice)
+        print(all_results[i][k].propertyFeatures)
 
