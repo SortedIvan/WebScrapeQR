@@ -29,11 +29,6 @@ def get_funda_soups(city, priceLow, priceHigh, km):
         soups.append(BeautifulSoup(results[i].text, "html.parser"))
     return soups
 
-# parent = data.find("body").find("ul")
-  
-# # finding all <li> tags
-# text = list(parent.descendants)
-
 def create_funda_listings(soup):
     funda_listings = []
     property_area = ""

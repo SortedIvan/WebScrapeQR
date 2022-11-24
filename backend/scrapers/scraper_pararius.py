@@ -19,7 +19,6 @@ class ParariusListing():
 def RetrieveParariusHTML(city,priceLow, priceHigh, pageNr):
     return requests.get(f"https://www.pararius.com/apartments/{city}/{priceLow}-{priceHigh}/page-{pageNr}")
 
-
 def GetParariusSoups(city,priceLow,priceHigh):
     results = []
     soups = []
@@ -35,8 +34,6 @@ def GetRawListings(city, priceLow, priceHigh):
     for i in range(len(soups)):
         rawlistings.append(soups[i].find_all("li", attrs = {"class" : "search-list__item search-list__item--listing"}))
     return rawlistings
-
-
 
 def GetProcessedListings(city, priceLow, priceHigh):
     rawListsings = GetRawListings(city, priceLow, priceHigh)
@@ -59,16 +56,17 @@ def GetProcessedListings(city, priceLow, priceHigh):
             )
     return processedListings
 
-processedListings = GetProcessedListings("eindhoven", 700, 1100)
-for i in range(len(processedListings)):
-    print(processedListings[i].url)
-    print(processedListings[i].houseName)
-    print(processedListings[i].houseLocation)
-    print(processedListings[i].housePrice)
-    print(processedListings[i].houseMetrics)
-    print(processedListings[i].nrOfRooms)
-    print(processedListings[i].interior)
-    print("----------------------------------------------------------------")
+def PrintAllResults():
+    processedListings = GetProcessedListings("eindhoven", 700, 1100)
+    for i in range(len(processedListings)):
+        print(processedListings[i].url)
+        print(processedListings[i].houseName)
+        print(processedListings[i].houseLocation)
+        print(processedListings[i].housePrice)
+        print(processedListings[i].houseMetrics)
+        print(processedListings[i].nrOfRooms)
+        print(processedListings[i].interior)
+        print("----------------------------------------------------------------")
 
 
 

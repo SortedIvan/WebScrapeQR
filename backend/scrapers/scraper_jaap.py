@@ -34,7 +34,6 @@ def get_jaap_html(city, price_low, price_high, km, page_nr):
     print(full_url)
     return requests.get(full_url, headers=headers)
 
-
 def get_jaap_soups(city, priceLow, priceHigh, km):
     results = []
     soups = []
@@ -43,7 +42,6 @@ def get_jaap_soups(city, priceLow, priceHigh, km):
     for i in range(len(results)):
         soups.append(BeautifulSoup(results[i].text, "html.parser"))
     return soups
-
 
 def create_jaap_listings(soup):
     url = ""
@@ -77,8 +75,6 @@ def create_jaap_listings(soup):
         )
     return jaap_listings
 
-
-
 def strip_all_results(city, priceLow, priceHigh, km):
     all_listings = []
     soups = get_jaap_soups(city, priceLow, priceHigh, km)
@@ -95,16 +91,15 @@ def get_all_property_prices(city, priceLow, priceHigh, km):
             prices.append(all_results[i][k].housePrice)
     return prices
 
-
-all_results = strip_all_results("eindhoven", 700, 1100, 15)
-# strip_all_results()
-for i in range(len(all_results)):
-    for k in range(len(all_results[i])):
-        print("-----------------------------------------------------------------------------------------------------")
-        print(all_results[i][k])
-        print(all_results[i][k].url)
-        print(all_results[i][k].houseName)
-        print(all_results[i][k].houseLocation)
-        print(all_results[i][k].housePrice)
-        print(all_results[i][k].propertyFeatures)
+def PrintAllResults():
+    all_results = strip_all_results("eindhoven", 700, 1100, 15)
+    for i in range(len(all_results)):
+        for k in range(len(all_results[i])):
+            print("-----------------------------------------------------------------------------------------------------")
+            print(all_results[i][k])
+            print(all_results[i][k].url)
+            print(all_results[i][k].houseName)
+            print(all_results[i][k].houseLocation)
+            print(all_results[i][k].housePrice)
+            print(all_results[i][k].propertyFeatures)
 
