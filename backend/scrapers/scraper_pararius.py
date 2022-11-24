@@ -59,7 +59,7 @@ def GetProcessedListings(city, priceLow, priceHigh):
             )
     return processedListings
 
-processedListings = GetProcessedListings("eindhoven", 0, 2000)
+processedListings = GetProcessedListings("eindhoven", 700, 1100)
 for i in range(len(processedListings)):
     print(processedListings[i].url)
     print(processedListings[i].houseName)

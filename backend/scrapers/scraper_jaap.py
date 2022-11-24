@@ -26,7 +26,6 @@ def match_string_to_url(name, urls):
             return urls[i]
     return ""
 
-
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
 def get_jaap_html(city, price_low, price_high, km, page_nr):
     jaap_listing_urls = get_jaap_urls()
@@ -47,6 +46,11 @@ def get_jaap_soups(city, priceLow, priceHigh, km):
 
 
 def create_jaap_listings(soup):
+    url = ""
+    property_name = ""
+    property_location = ""
+    actual_property_price = ""
+    property_features = []
     jaap_listings = []
     newResult = soup.find('div', attrs={'class': 'property-list'})
     listings = newResult.find_all('div', attrs= {'class' : 'property'})
@@ -58,7 +62,8 @@ def create_jaap_listings(soup):
             property_name = property_info_list.find('h2', attrs = {'class' : 'property-address-street'}).text
             property_location = property_info_list.find('div', attrs = {'class' : 'property-address-zipcity'}).text
             property_price = property_info_list.find('div', attrs = {'class' : 'property-price'}).text
-            actual_property_price = int(re.sub('[^0-9]', "", property_price))
+            if actual_property_price != '':
+                actual_property_price = int(float(re.sub('[^0-9]', "", property_price)))
             property_features = property_info_list.find('div', attrs = {'class': 'property-features'}).text.strip()
 
         jaap_listings.append(
@@ -91,7 +96,7 @@ def get_all_property_prices(city, priceLow, priceHigh, km):
     return prices
 
 
-all_results = strip_all_results("eindhoven", 100, 2000, 15)
+all_results = strip_all_results("eindhoven", 700, 1100, 15)
 # strip_all_results()
 for i in range(len(all_results)):
     for k in range(len(all_results[i])):

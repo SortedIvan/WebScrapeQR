@@ -38,21 +38,21 @@ def create_funda_listings(soup):
     listings = search_content_output.find_all('li', attrs = {'class': 'search-result'})
     for i in range(len(listings)):
         listing_link = listings[i].find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
-        title_street = listings[i].find('h2', attrs = {'class' : 'search-result__header-title fd-m-none'}).text
-        postcode = listings[i].find('h4', attrs = {'class' : 'search-result__header-subtitle fd-m-none'}).text
-        price = listings[i].find('span', attrs = {'class' : 'search-result-price'}).text
+        title_street = listings[i].find('h2', attrs = {'class' : 'search-result__header-title fd-m-none'}).text.strip()
+        postcode = listings[i].find('h4', attrs = {'class' : 'search-result__header-subtitle fd-m-none'}).text.strip()
+        price = listings[i].find('span', attrs = {'class' : 'search-result-price'}).text.strip()
         further_info = listings[i].find('div', attrs = {'class': 'search-result-info'})
         li_elements = further_info.find_all('li')
         try:
-            property_area = li_elements[0].text
+            property_area = li_elements[0].text.strip()
         except IndexError:
             print("")
         try:
-            room_amount = li_elements[1].text
+            room_amount = li_elements[1].text.strip()
         except IndexError:
             print("")
         try:
-            available_from = li_elements[2].text
+            available_from = li_elements[2].text.strip()
         except IndexError:
             print("")
         
@@ -66,11 +66,25 @@ def create_funda_listings(soup):
         ))
     return funda_listings
 
+def GetAllFundaListings(city, priceLow, priceHigh, km):
+    soups = get_funda_soups(city, priceLow, priceHigh, km)
+    all_listings_pages = []
+    all_listings_seperate = [] 
+    for i in range(len(soups)):
+        all_listings_pages.append(create_funda_listings(soups[i]))
+    for x in range(len(soups)):
+        for y in range(len(all_listings_pages[x])):
+            all_listings_seperate.append(all_listings_pages[x][y])
+    return all_listings_seperate
 
-# test_html =  get_funda_html('eindhoven', 500, 1250, 3, 2)
-# print(test_html.text)
 
-funda_soups = get_funda_soups('eindhoven', 500, 1250, 10)
-all_listings = []
-for i in range(len(funda_soups)):
-    all_listings.append(create_funda_listings(funda_soups[i]))
+def PrintResults():
+    listings = GetAllFundaListings("eindhoven", 200, 1500, 15)
+    for i in range(len(listings)):
+        print(listings[i].url)
+        print(listings[i].houseName)
+        print(listings[i].houseLocation)
+        print(listings[i].housePrice)
+        print(listings[i].propertyFeatures)
+        print("------------------------------------------------------------------------")
+
