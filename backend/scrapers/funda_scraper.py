@@ -29,6 +29,11 @@ def get_funda_soups(city, priceLow, priceHigh, km):
         soups.append(BeautifulSoup(results[i].text, "html.parser"))
     return soups
 
+# parent = data.find("body").find("ul")
+  
+# # finding all <li> tags
+# text = list(parent.descendants)
+
 def create_funda_listings(soup):
     funda_listings = []
     property_area = ""
@@ -41,20 +46,23 @@ def create_funda_listings(soup):
         title_street = listings[i].find('h2', attrs = {'class' : 'search-result__header-title fd-m-none'}).text.strip()
         postcode = listings[i].find('h4', attrs = {'class' : 'search-result__header-subtitle fd-m-none'}).text.strip()
         price = listings[i].find('span', attrs = {'class' : 'search-result-price'}).text.strip()
-        further_info = listings[i].find('div', attrs = {'class': 'search-result-info'})
-        li_elements = further_info.find_all('li')
+        further_info = listings[i].find('ul', attrs = {'class': 'search-result-kenmerken'})
         try:
-            property_area = li_elements[0].text.strip()
-        except IndexError:
-            print("")
-        try:
-            room_amount = li_elements[1].text.strip()
-        except IndexError:
-            print("")
-        try:
-            available_from = li_elements[2].text.strip()
-        except IndexError:
-            print("")
+            further_info_subelements = further_info.find_all('li')
+            try:
+                property_area = further_info_subelements[0].text.strip()
+            except IndexError:
+                print("")
+            try:
+                room_amount = further_info_subelements[1].text.strip()
+            except IndexError:
+                print("")
+            try:
+                available_from = further_info_subelements[2].text.strip()
+            except IndexError:
+                print("")
+        except:
+            further_info = []
         
         property_features = [("property_area: " + property_area), ("room_amount: " + room_amount), ("available_from: " + available_from)]
         funda_listings.append(FundaListing(
@@ -88,3 +96,4 @@ def PrintResults():
         print(listings[i].propertyFeatures)
         print("------------------------------------------------------------------------")
 
+PrintResults()
