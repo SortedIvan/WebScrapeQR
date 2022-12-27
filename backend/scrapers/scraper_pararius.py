@@ -58,6 +58,7 @@ def GetProcessedListings(city, priceLow, priceHigh):
 
 def PrintAllResults():
     processedListings = GetProcessedListings("eindhoven", 700, 1100)
+
     for i in range(len(processedListings)):
         print(processedListings[i].url)
         print(processedListings[i].houseName)
@@ -69,6 +70,6 @@ def PrintAllResults():
         print("----------------------------------------------------------------")
 
 
-
+PrintAllResults()
 
 

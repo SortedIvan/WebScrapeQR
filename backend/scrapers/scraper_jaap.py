@@ -92,7 +92,7 @@ def get_all_property_prices(city, priceLow, priceHigh, km):
     return prices
 
 def PrintAllResults():
-    all_results = strip_all_results("eindhoven", 700, 1100, 15)
+    all_results = strip_all_results("eindhoven", 300, 500, 5)
     for i in range(len(all_results)):
         for k in range(len(all_results[i])):
             print("-----------------------------------------------------------------------------------------------------")
@@ -103,3 +103,4 @@ def PrintAllResults():
             print(all_results[i][k].housePrice)
             print(all_results[i][k].propertyFeatures)
 
+PrintAllResults()

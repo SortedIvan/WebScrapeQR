@@ -1,0 +1,810 @@
+/huur/amsterdam/appartement-42849331-hellingbaan-326/
+Hellingbaan 326
+Hellingbaan 326 1033 DB Amsterdam
+€ 1.495 /mnd
+property_area: 64 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42849310-hellingbaan-318/
+Hellingbaan 318
+Hellingbaan 318 1033 DB Amsterdam
+€ 1.495 /mnd
+property_area: 63 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42901473-osdorpplein-920/
+Osdorpplein 920
+Osdorpplein 920 1068 TD Amsterdam
+€ 1.320 /mnd
+property_area: 47 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42900355-osdorpplein-926/
+Osdorpplein 926
+Osdorpplein 926 1068 TD Amsterdam
+€ 1.390 /mnd
+property_area: 52 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88431651-de-wittenkade-61-2v/
+De Wittenkade 61 2v
+De Wittenkade 61 2v 1052 AD Amsterdam
+€ 1.350 /mnd
+property_area: 35 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88426885-kolfschotenstraat-68/
+Kolfschotenstraat 68
+Kolfschotenstraat 68 1104 PA Amsterdam
+€ 1.300 /mnd
+property_area: 72 m²room_amount: 3 kamersavailable_from: Beschikbaar per 1-1-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42907422-buitenveldertselaan-66-a2/
+Buitenveldertselaan 66 A2
+Buitenveldertselaan 66 A2 1081 AB Amsterdam
+€ 1.350 /mnd
+property_area: 49 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42907490-buitenveldertselaan-66-c9/
+Buitenveldertselaan 66 C9
+Buitenveldertselaan 66 C9 1081 AB Amsterdam
+€ 1.350 /mnd
+property_area: 49 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42907481-buitenveldertselaan-68-a4/
+Buitenveldertselaan 68 A4
+Buitenveldertselaan 68 A4 1081 AB Amsterdam
+€ 1.350 /mnd
+property_area: 49 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42078788-van-nijenrodeweg-266/
+Van Nijenrodeweg 266
+Van Nijenrodeweg 266 1082 GX Amsterdam
+€ 1.050 /mnd
+property_area: 33 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88439141-ottho-heldringstraat-35-w-pp/
+Ottho Heldringstraat 35 W+PP
+Ottho Heldringstraat 35 W+PP 1066 XT Amsterdam
+€ 1.500 /mnd
+property_area: 61 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42909546-wittgensteinlaan-168/
+Wittgensteinlaan 168
+Wittgensteinlaan 168 1062 KD Amsterdam
+€ 1.410 /mnd
+property_area: 96 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42901945-krijn-taconiskade-427/
+Krijn Taconiskade 427
+Krijn Taconiskade 427 1087 HW Amsterdam
+€ 1.068 /mnd
+property_area: 45 m²room_amount: 1 kameravailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-41244607-wijdesteeg/
+Wijdesteeg
+Wijdesteeg 1012 RN Amsterdam
+€ 550 /mnd
+property_area: Per direct beschikbaarroom_amount: 1 kameravailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-41430226-wibautstraat-212/
+Wibautstraat 212
+Wibautstraat 212 1091 GS Amsterdam
+€ 250 /mnd
+property_area: Per direct beschikbaarroom_amount: 1 kameravailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88397846-pietersbergweg-29-b/
+Pietersbergweg 29 B
+Pietersbergweg 29 B 1105 BM Amsterdam
+€ 1.475 /mnd
+property_area: 92 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42076600-liendenhof-47/
+Liendenhof 47
+Liendenhof 47 1108 HA Amsterdam
+€ 1.350 /mnd
+property_area: 98 m²room_amount: 4 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42941988-liendenhof-157/
+Liendenhof 157
+Liendenhof 157 1108 HJ Amsterdam
+€ 1.225 /mnd
+property_area: 75 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42936573-leerdamhof-410/
+Leerdamhof 410
+Leerdamhof 410 1108 CJ Amsterdam
+€ 1.267 /mnd
+property_area: 98 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42063646-marnixstraat-325-2/
+Marnixstraat 325 2
+Marnixstraat 325 2 1016 TC Amsterdam
+€ 1.500 /mnd
+property_area: 70 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42935138-sijpestein-11-pp/
+Sijpestein 11 PP
+Sijpestein 11 PP 1083 XH Amsterdam
+€ 230 /mnd
+property_area: In overlegroom_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42075755-staalmeesterslaan-351/
+Staalmeesterslaan 351
+Staalmeesterslaan 351 1057 PD Amsterdam
+€ 1.452 /mnd
+property_area: 122 m²room_amount: 5 kamersavailable_from: Beschikbaar per 1-1-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88428984-wamelplein-42/
+Wamelplein 42
+Wamelplein 42 1106 DP Amsterdam
+€ 1.400 /mnd
+property_area: 60 m²room_amount: 2 kamersavailable_from: Beschikbaar per 1-1-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42069033-overtoom-87-4/
+Overtoom 87 4
+Overtoom 87 4 1054 HC Amsterdam
+€ 1.400 /mnd
+property_area: 58 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42068333-staalmeesterslaan-262/
+Staalmeesterslaan 262
+Staalmeesterslaan 262 1057 NZ Amsterdam
+€ 1.015 /mnd
+property_area: 58 m²room_amount: 2 kamersavailable_from: Beschikbaar per 13-2-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42055861-staalmeesterslaan-251/
+Staalmeesterslaan 251
+Staalmeesterslaan 251 1057 NX Amsterdam
+€ 1.452 /mnd
+property_area: 122 m²room_amount: 5 kamersavailable_from: Beschikbaar per 1-2-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42920986-naritaweg-205-d/
+Naritaweg 205 D
+Naritaweg 205 D 1043 CB Amsterdam
+€ 1.400 /mnd
+property_area: 61 m²room_amount: 1 kameravailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42909955-haparandaweg-50/
+Haparandaweg 50
+Haparandaweg 50 1013 BD Amsterdam
+€ 1.500 /mnd
+property_area: 55 m²room_amount: 1 kameravailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42909608-haparandaweg-242/
+Haparandaweg 242
+Haparandaweg 242 1013 BD Amsterdam
+€ 1.388 /mnd
+property_area: 46 m²room_amount: 1 kameravailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42823963-staalmeesterslaan-355/
+Staalmeesterslaan 355
+Staalmeesterslaan 355 1057 PE Amsterdam
+€ 1.376 /mnd
+property_area: 85 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42823843-staalmeesterslaan-349/
+Staalmeesterslaan 349
+Staalmeesterslaan 349 1057 PD Amsterdam
+€ 1.376 /mnd
+property_area: 85 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42826063-staalmeesterslaan-219/
+Staalmeesterslaan 219
+Staalmeesterslaan 219 1057 NV Amsterdam
+€ 1.421 /mnd
+property_area: 85 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42804696-krijn-taconiskade-234/
+Krijn Taconiskade 234
+Krijn Taconiskade 234 1087 HW Amsterdam
+€ 1.455 /mnd
+property_area: 98 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42806607-bert-haanstrakade-928/
+Bert Haanstrakade 928
+Bert Haanstrakade 928 1087 HJ Amsterdam
+€ 1.460 /mnd
+property_area: 87 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42923213-valkenburgerstraat/
+Valkenburgerstraat
+Valkenburgerstraat 1011 LZ Amsterdam
+€ 300 /mnd
+property_area: In overlegroom_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42926040-spangenhof-47/
+Spangenhof 47
+Spangenhof 47 1083 JJ Amsterdam
+€ 1.210 /mnd
+property_area: 87 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42990289-rosy-wertheimstraat-14-a/
+Rosy Wertheimstraat 14 A
+Rosy Wertheimstraat 14 A 1082 MZ Amsterdam
+€ 1.460 /mnd
+property_area: 68 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42063039-osdorper-ban-2029/
+Osdorper Ban 2029
+Osdorper Ban 2029 1069 TK Amsterdam
+€ 1.285 /mnd
+property_area: 93 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42060843-anna-blamansingel-184/
+Anna Blamansingel 184
+Anna Blamansingel 184 1102 SW Amsterdam
+€ 1.222 /mnd
+property_area: 102 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88422596-karspeldreef-1463/
+Karspeldreef 1463
+Karspeldreef 1463 1104 SE Amsterdam
+€ 1.325 /mnd
+property_area: 53 m²room_amount: 2 kamersavailable_from: Beschikbaar per 1-4-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88422527-karspeldreef-1415/
+Karspeldreef 1415
+Karspeldreef 1415 1104 SE Amsterdam
+€ 1.325 /mnd
+property_area: 53 m²room_amount: 2 kamersavailable_from: Beschikbaar per 1-2-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88391580-kruitberghof-114/
+Kruitberghof 114
+Kruitberghof 114 1104 BC Amsterdam
+€ 1.325 /mnd
+property_area: 53 m²room_amount: 2 kamersavailable_from: Beschikbaar per 1-1-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42826265-staalmeesterslaan-331/
+Staalmeesterslaan 331
+Staalmeesterslaan 331 1057 PC Amsterdam
+€ 1.421 /mnd
+property_area: 85 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-41207720-frieslandstraat-91/
+Frieslandstraat 91
+Frieslandstraat 91 1082 TL Amsterdam
+€ 225 /mnd
+property_area: In overlegroom_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88416185-pietersbergweg-23-c/
+Pietersbergweg 23 C
+Pietersbergweg 23 C 1105 BM Amsterdam
+€ 1.395 /mnd
+property_area: 92 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88416130-pietersbergweg-17-a/
+Pietersbergweg 17 A
+Pietersbergweg 17 A 1105 BM Amsterdam
+€ 1.195 /mnd
+property_area: 53 m²room_amount: 1 kameravailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42920111-naritaweg-207-f/
+Naritaweg 207 F
+Naritaweg 207 F 1043 CB Amsterdam
+€ 1.415 /mnd
+property_area: 61 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88416055-pietersbergweg-11-d/
+Pietersbergweg 11 D
+Pietersbergweg 11 D 1105 BM Amsterdam
+€ 960 /mnd
+property_area: 53 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42999155-sparrenweg-51/
+Sparrenweg 51
+Sparrenweg 51 1091 HP Amsterdam
+€ 250 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42975358-prinsengracht-487/
+Prinsengracht 487
+Prinsengracht 487 1016 HP Amsterdam
+€ 350 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42708039-passeerdersstraat/
+Passeerdersstraat
+Passeerdersstraat 1016 XB Amsterdam
+€ 250 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42708451-eerste-jan-steenstraat/
+Eerste Jan Steenstraat
+Eerste Jan Steenstraat 1072 NK Amsterdam
+€ 200 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88413695-develstein-122/
+Develstein 122
+Develstein 122 1102 AK Amsterdam
+€ 1.075 /mnd
+property_area: 57 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-40546831-marnixstraat-342/
+Marnixstraat 342
+Marnixstraat 342 1016 XT Amsterdam
+€ 250 /mnd
+property_area: In overlegroom_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88428592-tugelaweg-32/
+Tugelaweg 32
+Tugelaweg 32 1092 VE Amsterdam
+€ 200 /mnd
+property_area: Beschikbaar per 1-2-2023room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88301636-sausalitolaan-22/
+Sausalitolaan 22
+Sausalitolaan 22 1031 KE Amsterdam
+€ 200 /mnd
+property_area: Per direct beschikbaarroom_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88392545-utrechtsedwarsstraat-144/
+Utrechtsedwarsstraat 144
+Utrechtsedwarsstraat 144 1017 WK Amsterdam
+€ 375 /mnd
+property_area: 10 m²room_amount: Per direct beschikbaaravailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42861741-pontsteiger/
+Pontsteiger
+Pontsteiger 1014 ZP Amsterdam
+€ 500 /mnd
+property_area: In overlegroom_amount: Per direct beschikbaaravailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42804636-mary-van-der-sluisstraat-124/
+Mary van der Sluisstraat 124
+Mary van der Sluisstraat 124 1095 ME Amsterdam
+€ 1.339 /mnd
+property_area: 65 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88428632-leo-hornstraat/
+Leo Hornstraat
+Leo Hornstraat 1095 MN Amsterdam
+€ 200 /mnd
+property_area: Per direct beschikbaarroom_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42992663-govert-flinckstraat/
+Govert Flinckstraat
+Govert Flinckstraat 1072 EJ Amsterdam
+€ 200 /mnd
+property_area: In overlegroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88262471-maassluisstraat-69/
+Maassluisstraat 69
+Maassluisstraat 69 1062 GA Amsterdam
+€ 200 /mnd
+property_area: Per direct beschikbaarroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42635274-piet-heinkade/
+Piet Heinkade
+Piet Heinkade 1019 HM Amsterdam
+€ 200 /mnd
+property_area: In overlegroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42828879-singel-200/
+Singel 200
+Singel 200 1016 AA Amsterdam
+€ 375 /mnd
+property_area: Per direct beschikbaarroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42775627-badhuiskade/
+Badhuiskade
+Badhuiskade 1031 KV Amsterdam
+€ 220 /mnd
+property_area: Per direct beschikbaarroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-41772564-woestduinstraat/
+Woestduinstraat
+Woestduinstraat 1058 TE Amsterdam
+€ 240 /mnd
+property_area: In overlegroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-40888503-eerste-constantijn-huygensstraat-48/
+Eerste Constantijn Huygensstraat 48
+Eerste Constantijn Huygensstraat 48 1054 BR Amsterdam
+€ 325 /mnd
+property_area: Per direct beschikbaarroom_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42062049-ks-ibisplantsoen-64/
+ks. Ibisplantsoen 64
+ks. Ibisplantsoen 64 1033 NR Amsterdam
+€ 1.440 /mnd
+property_area: 58 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42062047-ks-ibisplantsoen-12/
+ks. Ibisplantsoen 12
+ks. Ibisplantsoen 12 1033 NR Amsterdam
+€ 1.490 /mnd
+property_area: 63 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42927730-laan-van-spartaan/
+Laan van Spartaan
+Laan van Spartaan 1061 MA Amsterdam
+€ 225 /mnd
+property_area: Per direct beschikbaarroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88378254-revaleiland-353-p/
+Revaleiland 353 p
+Revaleiland 353 p 1014 ZG Amsterdam
+€ 250 /mnd
+property_area: 13 m²room_amount: In overlegavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-88202182-van-leijenberghlaan-8-ong/
+Van Leijenberghlaan 8 ong
+Van Leijenberghlaan 8 ong 1082 GM Amsterdam
+€ 325 /mnd
+property_area: 12 m²room_amount: In overlegavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42647028-taandwarsstraat-99-pp/
+Taandwarsstraat 99-PP
+Taandwarsstraat 99-PP 1013 BW Amsterdam
+€ 207 /mnd
+property_area: In overlegroom_amount: In overlegavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42543489-silodam/
+Silodam
+Silodam 1013 AS Amsterdam
+€ 275 /mnd
+property_area: Per direct beschikbaarroom_amount: In overlegavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42716576-loevestein-6/
+Loevestein 6
+Loevestein 6 1082 XJ Amsterdam
+€ 225 /mnd
+property_area: In overlegroom_amount: In overlegavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42062042-ks-ibisplantsoen-14/
+ks. Ibisplantsoen 14
+ks. Ibisplantsoen 14 1033 NR Amsterdam
+€ 1.310 /mnd
+property_area: 52 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-49600186-westerdok-490-pp/
+Westerdok 490 PP
+Westerdok 490 PP 1013 BH Amsterdam
+€ 200 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42058184-slangenburg-76/
+Slangenburg 76
+Slangenburg 76 1082 JW Amsterdam
+€ 225 /mnd
+property_area: Per direct beschikbaarroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42943623-haarlemmerweg/
+Haarlemmerweg
+Haarlemmerweg 1014 BL Amsterdam
+€ 1.500 /mnd
+property_area: 59 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42970920-esther-de-boer-van-rijkstraat-12/
+Esther de Boer-van Rijkstraat 12
+Esther de Boer-van Rijkstraat 12 1065 GN Amsterdam
+€ 300 /mnd
+property_area: In overlegroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-41608485-de-lierhof/
+De Lierhof
+De Lierhof 1059 WB Amsterdam
+€ 200 /mnd
+property_area: Per direct beschikbaarroom_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88415495-pietersbergweg-45-c/
+Pietersbergweg 45 C
+Pietersbergweg 45 C 1105 BM Amsterdam
+€ 945 /mnd
+property_area: 92 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42999135-dulcie-septemberpad-45/
+Dulcie Septemberpad 45
+Dulcie Septemberpad 45 1093 NK Amsterdam
+€ 1.135 /mnd
+property_area: 51 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42061867-van-nijenrodeweg-5/
+Van Nijenrodeweg 5
+Van Nijenrodeweg 5 1083 EA Amsterdam
+€ 1.350 /mnd
+property_area: 34 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42057542-sassenheimstraat-74-i/
+Sassenheimstraat 74 I
+Sassenheimstraat 74 I 1059 BL Amsterdam
+€ 1.500 /mnd
+property_area: 55 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42910935-dijkgraafplein-379/
+Dijkgraafplein 379
+Dijkgraafplein 379 1069 EV Amsterdam
+€ 725 /mnd
+property_area: 101 m²room_amount: 4 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42932262-lange-niezel-11-c/
+Lange Niezel 11 C
+Lange Niezel 11 C 1012 GS Amsterdam
+€ 1.250 /mnd
+property_area: 28 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88429779-bos-en-lommerplantsoen-25-k/
+Bos en Lommerplantsoen 25 K
+Bos en Lommerplantsoen 25 K 1055 AA Amsterdam
+€ 1.450 /mnd
+property_area: 31 m²room_amount: 1 kameravailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42941719-emmy-andriessestraat-536/
+Emmy Andriessestraat 536
+Emmy Andriessestraat 536 1087 NE Amsterdam
+€ 1.319 /mnd
+property_area: 97 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42997859-nieuwe-passeerdersstraat-170/
+Nieuwe Passeerdersstraat 170
+Nieuwe Passeerdersstraat 170 1016 XP Amsterdam
+€ 1.296 /mnd
+property_area: 63 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42063644-kuipersstraat-88-b/
+Kuipersstraat 88 -B
+Kuipersstraat 88 -B 1073 ES Amsterdam
+€ 1.475 /mnd
+property_area: 95 m²room_amount: 4 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42057557-arent-janszoon-ernststraat-1059/
+Arent Janszoon Ernststraat 1059
+Arent Janszoon Ernststraat 1059 1081 HL Amsterdam
+€ 1.200 /mnd
+property_area: 82 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42963497-revaleiland-30/
+Revaleiland 30
+Revaleiland 30 1014 ZG Amsterdam
+€ 1.320 /mnd
+property_area: 75 m²room_amount: 4 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42801076-strandeilandlaan-115/
+Strandeilandlaan 115
+Strandeilandlaan 115 1087 VW Amsterdam
+€ 981 /mnd
+property_area: 48 m²room_amount: 2 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42941864-orteliusstraat-17-b/
+Orteliusstraat 17 B
+Orteliusstraat 17 B 1057 AR Amsterdam
+€ 1.500 /mnd
+property_area: 51 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42055933-plantage-middenlaan-54-e3/
+Plantage Middenlaan 54 E3
+Plantage Middenlaan 54 E3 1018 DH Amsterdam
+€ 1.375 /mnd
+property_area: 70 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42055576-fritz-dietrich-kahlenbergstraat-111/
+Fritz Dietrich Kahlenbergstraat 111
+Fritz Dietrich Kahlenbergstraat 111 1087 LL Amsterdam
+€ 1.353 /mnd
+property_area: 92 m²room_amount: 3 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42905812-nieuwe-passeerdersstraat-286/
+Nieuwe Passeerdersstraat 286
+Nieuwe Passeerdersstraat 286 1016 XP Amsterdam
+€ 1.262 /mnd
+property_area: 48 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-88344932-karspeldreef-1427/
+Karspeldreef 1427
+Karspeldreef 1427 1104 SE Amsterdam
+€ 1.325 /mnd
+property_area: 53 m²room_amount: 2 kamersavailable_from: Beschikbaar per 9-1-2023
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42834690-revaleiland-44/
+Revaleiland 44
+Revaleiland 44 1014 ZG Amsterdam
+€ 1.320 /mnd
+property_area: 81 m²room_amount: 2 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42937938-bijlmerdreef-452/
+Bijlmerdreef 452
+Bijlmerdreef 452 1102 AC Amsterdam
+€ 1.450 /mnd
+property_area: 96 m²room_amount: 5 kamersavailable_from: In overleg
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42815096-dr-h-colijnstraat-612/
+Dr. H. Colijnstraat 612
+Dr. H. Colijnstraat 612 1067 CP Amsterdam
+€ 1.150 /mnd
+property_area: 105 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/parkeergelegenheid-42970690-amstelvlietstraat-305/
+Amstelvlietstraat 305
+Amstelvlietstraat 305 1096 GG Amsterdam
+€ 200 /mnd
+property_area: In overlegroom_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/appartement-42847777-buikslotermeerplein-1600/
+Buikslotermeerplein 1600
+Buikslotermeerplein 1600 1025 XL Amsterdam
+€ 1.163 /mnd
+property_area: 71 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42062345-seneca/?objecttypeId=2342d5aa-c673-4e5b-87b1-eb804727dbd5
+Seneca - Appartementen
+Seneca - Appartementen 1064 ZJ Amsterdam
+Van € 950 tot 1.450 /mnd
+property_area: 50 - 80 m²room_amount: 3 kamersavailable_from: Per direct beschikbaar
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-41136379-state-1/?objecttypeId=4d10798d-bafc-4d24-8634-b146827282cd
+BG-3
+BG-3 1096 DS Amsterdam
+€ 1.340 /mnd
+property_area: 65 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-41136379-state-1/?objecttypeId=8f7b483d-9965-43d5-b020-4489b6942df0
+BG-L
+BG-L 1096 DT Amsterdam
+Van € 1.449 tot 1.450 /mnd
+property_area: 195 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=5f899602-48ed-417a-9f3d-015c2349d020
+B
+B 1019 BJ Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42690817-pontsteiger/?objecttypeId=0b7e57d0-f3fb-4dd1-820f-ab855d414cd7
+Appartement type K
+Appartement type K 1014 ZP Amsterdam
+€ 1.450 /mnd
+property_area: 69 m²room_amount: 2 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42600314-de-werf-ceuta/?objecttypeId=ac5859a5-33e9-4064-8442-9962758a6ead
+C01 mais
+C01 mais 1033 SC Amsterdam
+Van € 1.500 tot 1.600 /mnd
+property_area: 100 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42521643-java-eiland-ii/?objecttypeId=40a284dd-b875-4375-9a58-231e2af2c641
+G4
+G4 1019 RD Amsterdam
+Van € 875 tot 2.000 /mnd
+property_area: 49 - 136 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=f29f03f6-154b-4a74-adb0-75e3ab52e048
+G4
+G4 1019 BJ Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42697986-vaandeldrager/?objecttypeId=45079c00-688c-4f0a-a9cc-fdacadd39cb0
+F
+F 1076 DS Amsterdam
+Van € 1.400 tot 3.800 /mnd
+property_area: 75 - 200 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42623693-de-werf-glenlyon/?objecttypeId=d3105903-25ea-4931-8b80-0a963192523a
+P
+P 1033 SN Amsterdam
+Van € 1.020 tot 1.050 /mnd
+property_area: 61 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42630062-ivens-studios-ijburg-1b/?objecttypeId=da593ac0-6cd4-46c6-86f1-256b724172b3
+C5A
+C5A 1087 BC Amsterdam
+Van € 755 tot 775 /mnd
+property_area: 36 m²room_amount: 1 kameravailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42600314-de-werf-ceuta/?objecttypeId=697baf72-75b4-4b8c-94df-9e4938322a1c
+A02 mais
+A02 mais 1033 SC Amsterdam
+€ 1.215 /mnd
+property_area: 73 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=c4f51583-0d6c-45cc-9a26-896841240e71
+B*
+B* 1019 PL Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42622485-de-werf-explorer/?objecttypeId=5b56dd8f-05b4-4ac3-abef-c7fa84baaabe
+S2
+S2 1033 SM Amsterdam
+Van € 1.110 tot 1.170 /mnd
+property_area: 68 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42674972-borneo-eiland-i/?objecttypeId=506badeb-e185-4464-a1ea-0796663c93b6
+221
+221 1019 XA Amsterdam
+Van € 1.000 tot 2.500 /mnd
+property_area: 83 - 148 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-41136379-state-1/?objecttypeId=5bdcfd80-e858-447d-a44d-ff4e8007aea6
+Q-2
+Q-2 1096 DS Amsterdam
+€ 1.159 /mnd
+property_area: 143 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42545737-java-eiland-v/?objecttypeId=352b05ef-848a-408a-b0b9-d939cd2d56c1
+B
+B 1019 SE Amsterdam
+Van € 995 tot 2.000 /mnd
+property_area: 44 - 142 m²room_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42674972-borneo-eiland-i/?objecttypeId=844db69b-f831-4e6b-a26b-e707fc503ede
+202
+202 1019 WC Amsterdam
+Van € 1.000 tot 2.500 /mnd
+property_area: 83 - 148 m²room_amount: available_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42630062-ivens-studios-ijburg-1b/?objecttypeId=686b767d-ac0d-4fd4-aaa6-8eeb553d8b29
+A7A
+A7A 1087 BC Amsterdam
+€ 880 /mnd
+property_area: 45 m²room_amount: 1 kameravailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42630062-ivens-studios-ijburg-1b/?objecttypeId=ddd61545-8320-47dd-8d25-380251aee65f
+A3
+A3 1087 BC Amsterdam
+€ 930 /mnd
+property_area: 48 m²room_amount: 1 kameravailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42600314-de-werf-ceuta/?objecttypeId=776ca05e-65a2-4fd0-830f-23a62f8f1e76
+C02
+C02 1033 SC Amsterdam
+Van € 1.025 tot 1.055 /mnd
+property_area: 63 m²room_amount: 1 kameravailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42622485-de-werf-explorer/?objecttypeId=86aeed2e-018e-4ca2-bc1b-4c0dd2470e09
+S4
+S4 1033 SM Amsterdam
+Van € 1.110 tot 1.190 /mnd
+property_area: 64 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42545737-java-eiland-v/?objecttypeId=7304d013-3fe5-4943-8a98-1081f2eaceb1
+D
+D 1019 SE Amsterdam
+Van € 995 tot 2.000 /mnd
+property_area: 44 - 142 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42622485-de-werf-explorer/?objecttypeId=3a31deb7-1884-4089-8450-3e6511586357
+S3
+S3 1033 EM Amsterdam
+Van € 1.100 tot 1.190 /mnd
+property_area: 68 m²room_amount: 3 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42622485-de-werf-explorer/?objecttypeId=4e74574e-f5c5-4ddb-beb7-b5fc34e5cf22
+T1
+T1 1033 EM Amsterdam
+Van € 1.050 tot 1.150 /mnd
+property_area: 80 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42697976-koploper/?objecttypeId=64cf68a3-c778-41f2-a7a1-5fa23af1ffcb
+O
+O 1076 DW Amsterdam
+Van € 1.405 tot 4.100 /mnd
+property_area: 72 - 222 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42545737-java-eiland-v/?objecttypeId=d1394baf-e170-46ed-b8bb-c6f54ed89a08
+D'
+D' 1019 ZZ Amsterdam
+Van € 995 tot 2.000 /mnd
+property_area: 44 - 142 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=b2bd2bd2-7f81-40eb-a256-8dedfb0257ad
+D'
+D' 1019 BJ Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=2d4292ab-860b-4c16-86f1-eb79a38c1f67
+GS
+GS 1019 PH Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42521643-java-eiland-ii/?objecttypeId=d8d19022-24c9-4d5a-99da-41e8cc078da3
+CE0
+CE0 1019 RD Amsterdam
+Van € 875 tot 2.000 /mnd
+property_area: 49 - 136 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
+/huur/amsterdam/huurcomplex-42529246-java-eiland-i/?objecttypeId=2dadcf9b-c594-41ea-8cfd-354aec221638
+CE0
+CE0 1019 BJ Amsterdam
+Van € 975 tot 2.000 /mnd
+property_area: 54 - 158 m²room_amount: 4 kamersavailable_from: 
+---------------------------------------------------------------------
