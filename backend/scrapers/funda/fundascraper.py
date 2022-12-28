@@ -52,7 +52,7 @@ def GetFundaRentalListings(city):
             listing_living_details.append(listing_living_detail.text.strip())
         
         listing_deposit = listing_soup.find('dd',attrs= {'class': 'object-kenmerken-group-list'}).text.strip()
-        
+
         print(listing_title)
         print(listing_subtitle)
         print(listing_price)

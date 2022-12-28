@@ -1,0 +1,22 @@
+urls = {
+    "amsterdam": "/noord-holland/amsterdam&c-houseFrom=-1",
+    "rotterdam":"/zuid-holland?c-municipality=Rotterdam&c-houseFrom=-1",
+    "denhaag": "/zuid-holland/den-haag&c-houseFrom=-1",
+    "utrecht": "/utrecht?c-municipality=Utrecht&c-houseFrom=-1",
+    "eindhoven": "/noord-brabant/eindhoven&c-houseFrom=-1",
+    "tilburg": "/noord-brabant?c-houseFrom=-1&c-municipality=Tilburg",
+    "almere": "/flevoland?c-houseFrom=-1&c-municipality=Almere",
+    "groningen": "/groningen?c-houseFrom=-1&c-municipality=Groningen",
+    "breda": "/noord-brabant?c-houseFrom=-1&c-municipality=Breda",
+    "nijmegen": "/gelderland?c-houseFrom=-1&c-municipality=Nijmegen",
+    "enschede": "/overijssel?c-houseFrom=-1&c-municipality=Enschede",
+    "apeldoorn": "/gelderland?c-houseFrom=-1&c-municipality=Apeldoorn",
+    "haarlem": "/noord-holland/haarlem?c-houseFrom=-1",
+    "arnhem": "/gelderland/arnhem?c-houseFrom=-1",
+    "zaanstad": "/noord-holland?c-houseFrom=-1&c-municipality=Zaanstad",
+    "amersfoort": "/utrecht?c-houseFrom=-1&c-municipality=Amersfoort",
+    "haarlemmermeer": "/noord-holland?c-houseFrom=-1&c-municipality=Haarlemmermeer",
+    "shertogenbosch": "/noord-brabant?c-houseFrom=-1&c-municipality=%27s-Hertogenbosch",
+    "zoetmeer": "/zuid-holland/zoetermeer?c-houseFrom=-1",
+    "zwolle": "/overijssel/zwolle?c-houseFrom=-1"
+}
