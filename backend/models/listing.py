@@ -1,10 +1,39 @@
-class RentalListing:
-  def __init__(self, _listingId, _listingType, _listingName, _listingDate, _listingPrice, _listingSqm, _listingRooms, _listingExtraInfo):
-    self.listingId = _listingId
-    self.listingType = _listingType
-    self.listingName = _listingName
-    self.listingDate = _listingDate
-    self.listingPrice = _listingPrice
-    self.listingSqm = _listingSqm
-    self.listingRooms = _listingRooms
-    self.listingExtraInfo = _listingExtraInfo
+from sqlalchemy import Column, String
+from database.databaseConnection import base
+
+class RentalU1K(base):
+    __tablename__="rental_U1K"
+    id=Column(String(255),primary_key=True,index=True)
+    listingType = Column(String(255), index = True)
+    listingName = Column(String(255), index = True)
+    listingDate = Column(String(255),index=True)
+    listingPrice = Column(String(255),index=True)
+    listingSqm = Column(String(255),index=True)
+    listingRooms = Column(String(255),index=True)
+    listingExtraInfo = Column(String(255),index=True)
+
+class RentalB1K2K(base):
+    __tablename__="rentalB1K2K"
+    id=Column(String(255),primary_key=True,index=True)
+    listingType = Column(String(255), index = True)
+    listingName = Column(String(255), index = True)
+    listingDate = Column(String(255),index=True)
+    listingPrice = Column(String(255),index=True)
+    listingSqm = Column(String(255),index=True)
+    listingRooms = Column(String(255),index=True)
+    listingExtraInfo = Column(String(255),index=True)
+
+class RentalA2K(base):
+    __tablename__="rentalA2K"
+    id=Column(String(255),primary_key=True,index=True)
+    listingType = Column(String(255), index = True)
+    listingName = Column(String(255), index = True)
+    listingDate = Column(String(255),index=True)
+    listingPrice = Column(String(255),index=True)
+    listingSqm = Column(String(255),index=True)
+    listingRooms = Column(String(255),index=True)
+    listingExtraInfo = Column(String(255),index=True)
+
+
+
+

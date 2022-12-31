@@ -28,11 +28,19 @@ def GetHuurstuntProductInfo():
     return json.loads(json.dumps(GetHuurstuntDataJson()))
 
 def GetAllListingsUrls():
-    urls = []
     listings = GetHuurstuntProductInfo()['data']['rentals']
     for i in range(len(listings)):
         if listings[i]['isNew'] == True:
-            urls.append("https://www.huurstunt.nl" + listings[i]['url'])
-    return urls
+            listing_type = listings[i]['type']
+            listing_street = listings[i]['street']
+            listing_rooms = listings[i]['rooms']
+            listing_price = listings[i]['price']
+            listing_url = "https://www.huurstunt.nl" + listings[i]['url']
 
+            print(listing_type)
+            print(listing_street)
+            print(listing_rooms)
+            print(listing_price)
+            print(listing_url)
+            
 print(GetAllListingsUrls())
