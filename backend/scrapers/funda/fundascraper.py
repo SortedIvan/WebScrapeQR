@@ -72,7 +72,9 @@ def GetFundaRentalListings(city):
                     listing_price,
                     listing_living_details[0],
                     listing_living_details[3],
-                    f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}"
+                    f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
+                    link,
+                    listing_title + " " + listing_subtitle
                 )
             )
 
@@ -86,7 +88,9 @@ def GetFundaRentalListings(city):
                     listing_price,
                     listing_living_details[0],
                     listing_living_details[1],
-                    f"Deposit: {listing_deposit} | Property size: Unavailable"
+                    f"Deposit: {listing_deposit} | Property size: Unavailable",
+                    link,
+                    listing_title + " " + listing_subtitle
                 )
             )
 
@@ -100,13 +104,10 @@ def GetFundaRentalListings(city):
                     listing_price,
                     listing_living_details[0],
                     "Unavailable",
-                    f"Deposit: {listing_deposit} | Property size: Unavailable"
+                    f"Deposit: {listing_deposit} | Property size: Unavailable",
+                    link,
+                    listing_title + " " + listing_subtitle
                 )
             )
     return rental_listings
 
-rental_listings = GetFundaRentalListings("amsterdam")
-
-for listing in rental_listings:
-    print(listing.listingId)
-    print(listing.listingPrice)
