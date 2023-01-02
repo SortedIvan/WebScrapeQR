@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from scheduler.scheduler import sched
 
 app = FastAPI()
 
@@ -19,4 +20,8 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-  return {"message": "Welcome to VintageClothing!"}
+  return {"message": "Welcome to Rentswipe!"}
+
+# Every day at 12AM, delete all instances of listings from the database and make space for new ones
+#@sched.scheduled_job('cron', day_of_week='mon-sun', hour=24)
+

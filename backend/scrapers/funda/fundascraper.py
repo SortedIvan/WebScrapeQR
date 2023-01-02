@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from utility_data.rental_listing_data import RentalListing
+import uuid
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
 
@@ -34,6 +36,7 @@ def GetFundaRentalListingLinks(city):
 
 def GetFundaRentalListings(city):
     funda_listing_links = GetFundaRentalListingLinks(city)
+    rental_listings = []
     if funda_listing_links is None:
         return None
 
@@ -59,4 +62,51 @@ def GetFundaRentalListings(city):
         print(listing_living_details)
         print(listing_deposit)
 
-GetFundaRentalListings("amsterdam")
+        if len(listing_living_details) == 3:
+            rental_listings.append(
+                RentalListing(
+                    str(uuid.uuid4()),
+                    "Rental property",
+                    listing_title,
+                    "Today",
+                    listing_price,
+                    listing_living_details[0],
+                    listing_living_details[3],
+                    f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}"
+                )
+            )
+
+        if len(listing_living_details) == 2:
+            rental_listings.append(
+                RentalListing(
+                    str(uuid.uuid4()),
+                    "Rental property",
+                    listing_title,
+                    "Today",
+                    listing_price,
+                    listing_living_details[0],
+                    listing_living_details[1],
+                    f"Deposit: {listing_deposit} | Property size: Unavailable"
+                )
+            )
+
+        if len(listing_living_details) == 1:
+            rental_listings.append(
+                RentalListing(
+                    str(uuid.uuid4()),
+                    "Rental property",
+                    listing_title,
+                    "Today",
+                    listing_price,
+                    listing_living_details[0],
+                    "Unavailable",
+                    f"Deposit: {listing_deposit} | Property size: Unavailable"
+                )
+            )
+    return rental_listings
+
+rental_listings = GetFundaRentalListings("amsterdam")
+
+for listing in rental_listings:
+    print(listing.listingId)
+    print(listing.listingPrice)
