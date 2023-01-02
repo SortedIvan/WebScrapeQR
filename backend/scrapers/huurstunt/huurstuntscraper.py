@@ -1,6 +1,10 @@
 import requests
-from bs4 import BeautifulSoup
 import json
+import uuid
+
+from utility_data.rental_listing_data import RentalListing
+from bs4 import BeautifulSoup
+
 
 headers = {
     "accept": "application/json, text/plain, */*",
@@ -20,15 +24,17 @@ headers = {
 body = "{\"force\":false,\"location\":{\"location\":\"Eindhoven\",\"distance\":null,\"suggestType\":\"city\",\"suggestId\":974,\"neighborhoodSlug\":null,\"streetSlug\":null,\"districtSlug\":null},\"price\":{\"from\":0,\"till\":100000},\"properties\":{\"rooms\":0,\"livingArea\":0,\"deliveryLevel\":null,\"rentalType\":null,\"outside\":[]},\"page\":1,\"sorting\":\"datum-af\",\"resultsPerPage\":21}"
 
 
-def GetHuurstuntDataJson():
+def GetHuurstuntDataJson(city):
+    headers['Referer'] = f"https://www.huurstunt.nl/huren/{city}/"
     page = requests.post("https://www.huurstunt.nl/public/api/search", headers = headers, data = body)
     return page.json()
 
-def GetHuurstuntProductInfo():
-    return json.loads(json.dumps(GetHuurstuntDataJson()))
+def GetHuurstuntListingInfo(city):
+    return json.loads(json.dumps(GetHuurstuntDataJson(city)))
 
-def GetAllListingsUrls():
-    listings = GetHuurstuntProductInfo()['data']['rentals']
+def GetAllRentalListings(city):
+    listings = GetHuurstuntListingInfo(city)['data']['rentals']
+    all_listings = []
     for i in range(len(listings)):
         if listings[i]['isNew'] == True:
             listing_type = listings[i]['type']
@@ -36,11 +42,35 @@ def GetAllListingsUrls():
             listing_rooms = listings[i]['rooms']
             listing_price = listings[i]['price']
             listing_url = "https://www.huurstunt.nl" + listings[i]['url']
+            listing_sqm = listings[i]['floorspace']
+            listing_full_address = listings[i]['city'] + " " + listings[i]['street']
+            listing_title = listings[i]['title']
 
-            print(listing_type)
-            print(listing_street)
-            print(listing_rooms)
-            print(listing_price)
-            print(listing_url)
-            
-print(GetAllListingsUrls())
+            all_listings.append(
+                RentalListing(
+                    str(uuid.uuid4()),
+                    listing_type,
+                    listing_title,
+                    "Today",
+                    listing_price,
+                    listing_sqm,
+                    listing_rooms,
+                    "None",
+                    listing_url,
+                    listing_full_address
+                )
+            )
+    return all_listings
+
+all_listings = GetAllRentalListings("eindhoven")
+
+for listing in all_listings:
+    print("-----------------------------------")
+    print(listing.listingId)
+    print(listing.listingSqm)
+    print(listing.listingName)
+    print(listing.listingUrl)
+    print(listing.listingPrice)
+    print(listing.listingAdress)
+    print(listing.listingRooms)
+    print("-----------------------------------")
