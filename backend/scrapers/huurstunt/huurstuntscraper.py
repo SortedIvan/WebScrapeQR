@@ -1,7 +1,6 @@
 import requests
 import json
 import uuid
-
 from utility_data.rental_listing_data import RentalListing
 from bs4 import BeautifulSoup
 
@@ -61,16 +60,3 @@ def GetAllRentalListings(city):
                 )
             )
     return all_listings
-
-all_listings = GetAllRentalListings("eindhoven")
-
-for listing in all_listings:
-    print("-----------------------------------")
-    print(listing.listingId)
-    print(listing.listingSqm)
-    print(listing.listingName)
-    print(listing.listingUrl)
-    print(listing.listingPrice)
-    print(listing.listingAdress)
-    print(listing.listingRooms)
-    print("-----------------------------------")

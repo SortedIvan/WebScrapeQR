@@ -110,13 +110,3 @@ def GetHuislijnRentalListings(city):
             )
         )
     return rental_listings
-
-listings = GetHuislijnRentalListings("breda")
-
-for i in range(len(listings)):
-    print(listings[i].listingId)
-    print(listings[i].listingName)
-    print(listings[i].listingPrice)
-    print(listings[i].listingSqm)
-    print(listings[i].listingUrl)
-    print(listings[i].listingAdress)

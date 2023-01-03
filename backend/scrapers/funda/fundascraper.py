@@ -5,6 +5,30 @@ import uuid
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
 
+cities_funda = [
+    "amsterdam",
+    "rotterdam",
+    "den-haag",
+    "utrecht",
+    "eindhoven",
+    "tilburg",
+    "almere",
+    "groningen",
+    "breda",
+    "nijmegen",
+    "enschede",
+    "apeldoorn",
+    "haarlem",      
+    "arnhem",           
+    "gemeente-zaanstad",         
+    "amersfoort",          
+    "gemeente-haarlemmermeer",  
+    "den-bosch",
+    "zoetermeer",
+    "zwolle",
+    ]
+
+
 def GetFundaRentalHtml(city, page):
     if page == 1:
         full_url = f'https://www.funda.nl/huur/{city}/1-dag/'
@@ -29,9 +53,22 @@ def GetFundaRentalListingLinks(city):
         search_content = soup.find('div', attrs = {'class': 'search-content-output'})
         search_content_listings = search_content.find_all('li', attrs = {'class': 'search-result'})
         for listing in search_content_listings:
-            listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
-            listing_href = "https://www.funda.nl/" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
-            links.append(listing_href)
+            try:
+                if not listing:
+                    continue
+                if listing.find('div', attrs = {'class': 'search-promolabel-new'}):
+                    listing_content = listing.find('div', attrs = {'class': 'search-result-content-promo'})
+                    listing_href = "https://www.funda.nl/" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+                    links.append(listing_href)
+                    continue
+                listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
+                listing_href = "https://www.funda.nl/" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+                links.append(listing_href)
+            except Exception as e:
+                print(e)
+                print(listing)
+                print(listing_content)
+                
     return links
 
 def GetFundaRentalListings(city):
@@ -43,6 +80,10 @@ def GetFundaRentalListings(city):
     for link in funda_listing_links:
         listing_html = requests.get(link, headers=headers)
         listing_soup = BeautifulSoup(listing_html.text, "html.parser")
+
+        if not listing_soup:
+            continue
+
         listing_header_details = listing_soup.find('div', attrs = {'class': 'object-header__details'})
 
         listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
@@ -56,12 +97,6 @@ def GetFundaRentalListings(city):
         
         listing_deposit = listing_soup.find('dd',attrs= {'class': 'object-kenmerken-group-list'}).text.strip()
 
-        print(listing_title)
-        print(listing_subtitle)
-        print(listing_price)
-        print(listing_living_details)
-        print(listing_deposit)
-
         if len(listing_living_details) == 3:
             rental_listings.append(
                 RentalListing(
@@ -71,7 +106,7 @@ def GetFundaRentalListings(city):
                     "Today",
                     listing_price,
                     listing_living_details[0],
-                    listing_living_details[3],
+                    listing_living_details[2],
                     f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
                     link,
                     listing_title + " " + listing_subtitle
@@ -111,3 +146,7 @@ def GetFundaRentalListings(city):
             )
     return rental_listings
 
+for i in range(len(cities_funda)):
+        print(cities_funda[i])
+        print(GetFundaRentalListings(cities_funda[i]))
+        
