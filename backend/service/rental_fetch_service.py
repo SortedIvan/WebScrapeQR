@@ -36,7 +36,7 @@ async def CreateFundaRentalListingObjects():
                 listings = fundascraper.GetFundaRentalListings(cities_funda[i])
 
                 for listing in listings:
-                    listing_exists = session.query(FundaRentalListing).filter(FundaRentalListing.listingUrl == listing.listingUrl)
+                    listing_exists = session.query(FundaRentalListing).filter(FundaRentalListing.listingUrl == listing.listingUrl).count()
 
                     if listing_exists:
                         continue
@@ -44,6 +44,7 @@ async def CreateFundaRentalListingObjects():
                     funda_listing = FundaRentalListing (
                         id = listing.listingId,
                         listingType = listing.listingType,
+                        listingName = listing.listingName,
                         listingDate = listing.listingDate,
                         listingPrice = listing.listingPrice,
                         listingSqm = listing.listingSqm,
@@ -52,18 +53,9 @@ async def CreateFundaRentalListingObjects():
                         listingUrl = listing.listingUrl,
                         listingAdress = listing.listingAdress
                     )
-
+                    print(listing.listingName)
                     session.add(funda_listing)
                     session.commit()
         except Exception as e:
             print(e)
 
-# @router.get("/agreement-sign/{randomLink}")
-# async def RetrieveContract(randomLink):
-#   with sessionLocal() as session:
-#     agreements = session.query(Agreement.key_agreement).filter(Agreement.key_agreement == randomLink).first()
-#     agreement = session.query(Agreement).filter(Agreement.key_agreement == randomLink).first()
-#   if (agreements[0] == randomLink):
-#     print(agreements[0], randomLink)
-#     return agreement
-#   return "Invalid key" 

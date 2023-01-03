@@ -58,11 +58,11 @@ def GetFundaRentalListingLinks(city):
                     continue
                 if listing.find('div', attrs = {'class': 'search-promolabel-new'}):
                     listing_content = listing.find('div', attrs = {'class': 'search-result-content-promo'})
-                    listing_href = "https://www.funda.nl/" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+                    listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
                     links.append(listing_href)
                     continue
                 listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
-                listing_href = "https://www.funda.nl/" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+                listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
                 links.append(listing_href)
             except Exception as e:
                 print(e)
@@ -78,75 +78,80 @@ def GetFundaRentalListings(city):
         return None
 
     for link in funda_listing_links:
-        listing_html = requests.get(link, headers=headers)
-        listing_soup = BeautifulSoup(listing_html.text, "html.parser")
+        try:
+            listing_html = requests.get(link, headers=headers)
+            listing_soup = BeautifulSoup(listing_html.text, "html.parser")
 
-        if not listing_soup:
-            continue
 
-        listing_header_details = listing_soup.find('div', attrs = {'class': 'object-header__details'})
+            if listing_soup is None:
+                continue
+            if listing_soup.find('div', attrs = {'class': 'search-result-similar'}) is not None:
+                continue
+            listing_header_details = listing_soup.find('div', attrs = {'class': 'object-header__details'})
+            if listing_header_details is None:
+                continue
 
-        listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
-        listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
-        listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()
-        listing_living_details = []
+            listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
+            listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
+            listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()
+            listing_living_details = []
 
-        listing_living_details_set = listing_header_details.find_all('span', attrs = {'class': 'kenmerken-highlighted__value fd-text--nowrap'})
-        for listing_living_detail in listing_living_details_set:
-            listing_living_details.append(listing_living_detail.text.strip())
-        
-        listing_deposit = listing_soup.find('dd',attrs= {'class': 'object-kenmerken-group-list'}).text.strip()
+            listing_living_details_set = listing_header_details.find_all('span', attrs = {'class': 'kenmerken-highlighted__value fd-text--nowrap'})
+            for listing_living_detail in listing_living_details_set:
+                listing_living_details.append(listing_living_detail.text.strip())
+            
+            listing_deposit = listing_soup.find('dd',attrs= {'class': 'object-kenmerken-group-list'}).text.strip()
 
-        if len(listing_living_details) == 3:
-            rental_listings.append(
-                RentalListing(
-                    str(uuid.uuid4()),
-                    "Rental property",
-                    listing_title,
-                    "Today",
-                    listing_price,
-                    listing_living_details[0],
-                    listing_living_details[2],
-                    f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
-                    link,
-                    listing_title + " " + listing_subtitle
+            if len(listing_living_details) == 3:
+                rental_listings.append(
+                    RentalListing(
+                        str(uuid.uuid4()),
+                        "Rental property",
+                        listing_title,
+                        "Today",
+                        listing_price,
+                        listing_living_details[0],
+                        listing_living_details[2],
+                        f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
+                        link,
+                        listing_title + " " + listing_subtitle
+                    )
                 )
-            )
 
-        if len(listing_living_details) == 2:
-            rental_listings.append(
-                RentalListing(
-                    str(uuid.uuid4()),
-                    "Rental property",
-                    listing_title,
-                    "Today",
-                    listing_price,
-                    listing_living_details[0],
-                    listing_living_details[1],
-                    f"Deposit: {listing_deposit} | Property size: Unavailable",
-                    link,
-                    listing_title + " " + listing_subtitle
+            if len(listing_living_details) == 2:
+                rental_listings.append(
+                    RentalListing(
+                        str(uuid.uuid4()),
+                        "Rental property",
+                        listing_title,
+                        "Today",
+                        listing_price,
+                        listing_living_details[0],
+                        listing_living_details[1],
+                        f"Deposit: {listing_deposit} | Property size: Unavailable",
+                        link,
+                        listing_title + " " + listing_subtitle
+                    )
                 )
-            )
 
-        if len(listing_living_details) == 1:
-            rental_listings.append(
-                RentalListing(
-                    str(uuid.uuid4()),
-                    "Rental property",
-                    listing_title,
-                    "Today",
-                    listing_price,
-                    listing_living_details[0],
-                    "Unavailable",
-                    f"Deposit: {listing_deposit} | Property size: Unavailable",
-                    link,
-                    listing_title + " " + listing_subtitle
+            if len(listing_living_details) == 1:
+                rental_listings.append(
+                    RentalListing(
+                        str(uuid.uuid4()),
+                        "Rental property",
+                        listing_title,
+                        "Today",
+                        listing_price,
+                        listing_living_details[0],
+                        "Unavailable",
+                        f"Deposit: {listing_deposit} | Property size: Unavailable",
+                        link,
+                        listing_title + " " + listing_subtitle
+                    )
                 )
-            )
+        except Exception as e:
+            print(e)
+            print(link)
     return rental_listings
 
-for i in range(len(cities_funda)):
-        print(cities_funda[i])
-        print(GetFundaRentalListings(cities_funda[i]))
         
