@@ -41,7 +41,8 @@ async def root():
 async def test():
     start_time = time.time()
     #await rental_service.CreateFundaRentalListingObjects()
-    await rental_service.CreateHuurstuntListingObjects()
+    #await rental_service.CreateHuurstuntListingObjects()
+    await rental_service.CreateHuislijnListingObjects()
     end_time = time.time()
     time_lapsed = end_time - start_time
     time_it_took = time_convert(time_lapsed)

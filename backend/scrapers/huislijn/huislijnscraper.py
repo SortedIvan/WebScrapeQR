@@ -26,7 +26,7 @@ urls = {
     "amersfoort": "/utrecht?c-houseFrom=-1&c-municipality=Amersfoort",
     "gemeente-haarlemmermeer": "/noord-holland?c-houseFrom=-1&c-municipality=Haarlemmermeer",
     "den-bosch": "/noord-brabant?c-houseFrom=-1&c-municipality=%27s-Hertogenbosch",
-    "zoetmeer": "/zuid-holland/zoetermeer?c-houseFrom=-1",
+    "zoetermeer": "/zuid-holland/zoetermeer?c-houseFrom=-1",
     "zwolle": "/overijssel/zwolle?c-houseFrom=-1"
 }
 
@@ -105,11 +105,9 @@ def GetHuislijnRentalListings(city):
                 sqm,
                 "Unavailable",
                 "None",
-                huislijn_property_links[i],
+                "https://www.huislijn.nl" + huislijn_property_links[i],
                 name + " " + zip,
                 city
             )
         )
     return rental_listings
-
-print(GetHuislijnRentalListings("eindhoven"))

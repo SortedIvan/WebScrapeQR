@@ -5,7 +5,7 @@ from database.databaseConnection import sessionLocal
 from scheduler.scheduler import sched
 from database.databaseConnection import sessionLocal
 from models.listing import FundaRentalListing, HuislijnRentalListing, HuurstuntRentalListing
-from service.citites import cities_funda, cities_huurstunt
+from service.citites import cities_funda, cities_huurstunt, cities_huislijn
 
 
 async def CreateFundaRentalListingObjects():
@@ -69,18 +69,18 @@ async def CreateHuurstuntListingObjects():
 
 async def CreateHuislijnListingObjects():
         with sessionLocal() as session:
-            for i in range(len(cities_huurstunt)):
-                listings = huurstuntscraper.GetAllRentalListings(cities_huurstunt[i])
+            for i in range(len(cities_huislijn)):
+                listings = huislijnscraper.GetHuislijnRentalListings(cities_huislijn[i])
 
                 for listing in listings:
-                    listing_exists = session.query(HuurstuntRentalListing).filter(HuurstuntRentalListing.listingUrl == listing.listingUrl).count()
+                    listing_exists = session.query(HuislijnRentalListing).filter(HuislijnRentalListing.listingUrl == listing.listingUrl).count()
 
                     if listing_exists:
                         continue
 
-                    huurstunt_listing = HuurstuntRentalListing (
+                    huurstunt_listing = HuislijnRentalListing (
                         id = listing.listingId,
-                        listingCity = cities_huurstunt[i],
+                        listingCity = cities_huislijn[i],
                         listingType = listing.listingType,
                         listingName = listing.listingName,
                         listingDate = listing.listingDate,
@@ -91,6 +91,17 @@ async def CreateHuislijnListingObjects():
                         listingUrl = listing.listingUrl,
                         listingAdress = listing.listingAdress
                     )
+
+                    print(listing.listingCity)
+                    print(listing.listingType)
+                    print(listing.listingName)
+                    print(listing.listingDate)
+                    print(listing.listingPrice)
+                    print(listing.listingSqm)
+                    print(listing.listingRooms)
+                    print(listing.listingExtraInfo)
+                    print(listing.listingUrl)
+
                     print(listing.listingName)
                     session.add(huurstunt_listing)
                     session.commit()

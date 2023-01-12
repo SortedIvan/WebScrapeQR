@@ -18,6 +18,7 @@ class FundaRentalListing(base):
 class HuislijnRentalListing(base):
     __tablename__="huislijn_rentals"
     id=Column(String(255),primary_key=True,index=True)
+    listingCity = Column(String(255), index = True)
     listingType = Column(String(255), index = True)
     listingName = Column(String(255), index = True)
     listingDate = Column(String(255),index=True)
@@ -25,6 +26,8 @@ class HuislijnRentalListing(base):
     listingSqm = Column(String(255),index=True)
     listingRooms = Column(String(255),index=True)
     listingExtraInfo = Column(String(255),index=True)
+    listingUrl = Column(String(255), index = True)
+    listingAdress = Column(String(255), index = True)
 
 class HuurstuntRentalListing(base):
     __tablename__="huurstunt_rentals"
