@@ -10,7 +10,7 @@ url_base = 'https://www.huislijn.nl'
 urls = {
     "amsterdam": "/noord-holland/amsterdam?c-houseFrom=-1",
     "rotterdam":"/zuid-holland?c-houseFrom=-1&c-municipality=Rotterdam",
-    "denhaag": "/zuid-holland/den-haag?c-houseFrom=-1",
+    "den-haag": "/zuid-holland/den-haag?c-houseFrom=-1",
     "utrecht": "/utrecht?c-houseFrom=-1&c-municipality=Utrecht",
     "eindhoven": "/noord-brabant/eindhoven?c-houseFrom=-1",
     "tilburg": "/noord-brabant?c-houseFrom=-1&c-municipality=Tilburg",
@@ -22,10 +22,10 @@ urls = {
     "apeldoorn": "/gelderland?c-houseFrom=-1&c-municipality=Apeldoorn",
     "haarlem": "/noord-holland/haarlem?c-houseFrom=-1",
     "arnhem": "/gelderland/arnhem?c-houseFrom=-1",
-    "zaanstad": "/noord-holland?c-houseFrom=-1&c-municipality=Zaanstad",
+    "gemeente-zaanstad": "/noord-holland?c-houseFrom=-1&c-municipality=Zaanstad",
     "amersfoort": "/utrecht?c-houseFrom=-1&c-municipality=Amersfoort",
-    "haarlemmermeer": "/noord-holland?c-houseFrom=-1&c-municipality=Haarlemmermeer",
-    "shertogenbosch": "/noord-brabant?c-houseFrom=-1&c-municipality=%27s-Hertogenbosch",
+    "gemeente-haarlemmermeer": "/noord-holland?c-houseFrom=-1&c-municipality=Haarlemmermeer",
+    "den-bosch": "/noord-brabant?c-houseFrom=-1&c-municipality=%27s-Hertogenbosch",
     "zoetmeer": "/zuid-holland/zoetermeer?c-houseFrom=-1",
     "zwolle": "/overijssel/zwolle?c-houseFrom=-1"
 }
@@ -106,7 +106,10 @@ def GetHuislijnRentalListings(city):
                 "Unavailable",
                 "None",
                 huislijn_property_links[i],
-                name + " " + zip
+                name + " " + zip,
+                city
             )
         )
     return rental_listings
+
+print(GetHuislijnRentalListings("eindhoven"))

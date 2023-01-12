@@ -1,6 +1,7 @@
 class RentalListing:
-  def __init__(self, _listingId, _listingType, _listingName, _listingDate, _listingPrice, _listingSqm, _listingRooms, _listingExtraInfo, _listingUrl, _listingAdress):
+  def __init__(self, _listingId, _listingType, _listingName, _listingDate, _listingPrice, _listingSqm, _listingRooms, _listingExtraInfo, _listingUrl, _listingAdress, _listingCity):
     self.listingId = _listingId
+    self.listingCity = _listingCity
     self.listingType = _listingType
     self.listingName = _listingName
     self.listingDate = _listingDate

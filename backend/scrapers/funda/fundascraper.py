@@ -114,7 +114,8 @@ def GetFundaRentalListings(city):
                         listing_living_details[2],
                         f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
                         link,
-                        listing_title + " " + listing_subtitle
+                        listing_title + " " + listing_subtitle,
+                        city
                     )
                 )
 
@@ -130,7 +131,8 @@ def GetFundaRentalListings(city):
                         listing_living_details[1],
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link,
-                        listing_title + " " + listing_subtitle
+                        listing_title + " " + listing_subtitle,
+                        city
                     )
                 )
 
@@ -146,7 +148,8 @@ def GetFundaRentalListings(city):
                         "Unavailable",
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link,
-                        listing_title + " " + listing_subtitle
+                        listing_title + " " + listing_subtitle,
+                        city
                     )
                 )
         except Exception as e:
