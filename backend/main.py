@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from scheduler.scheduler import sched
 import service.rental_fetch_service as rental_service
 from database.databaseConnection import engine, sessionLocal, base
+from routers import user_router
 import time
 
 def time_convert(sec):
@@ -11,8 +12,6 @@ def time_convert(sec):
   hours = mins // 60
   mins = mins % 60
   print("Time Lapsed = {0}:{1}:{2}".format(int(hours),int(mins),sec))
-
-
 
 app = FastAPI()
 
@@ -30,7 +29,10 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+
 base.metadata.create_all(bind=engine)
+
+app.include_router(user_router.router)
 
 @app.get("/")
 async def root():
