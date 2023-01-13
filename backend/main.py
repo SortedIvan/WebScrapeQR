@@ -50,6 +50,8 @@ async def test():
     time_it_took = time_convert(time_lapsed)
     return {"message" : "Hi!", "time_it_took":str(time_it_took)}
 
+
+
 # Every day at 12AM, delete all instances of listings from the database and make space for new ones
 #@sched.scheduled_job('cron', day_of_week='mon-sun', hour=24)
 

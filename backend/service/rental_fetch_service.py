@@ -4,7 +4,7 @@ from scrapers.huurstunt import huurstuntscraper
 from database.databaseConnection import sessionLocal
 from scheduler.scheduler import sched
 from database.databaseConnection import sessionLocal
-from models.listing import FundaRentalListing, HuislijnRentalListing, HuurstuntRentalListing
+from models.listing import RentalListing
 from service.citites import cities_funda, cities_huurstunt, cities_huislijn
 
 
@@ -15,12 +15,12 @@ async def CreateFundaRentalListingObjects():
                 listings = fundascraper.GetFundaRentalListings(cities_funda[i])
 
                 for listing in listings:
-                    listing_exists = session.query(FundaRentalListing).filter(FundaRentalListing.listingUrl == listing.listingUrl).count()
+                    listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
 
                     if listing_exists:
                         continue
 
-                    funda_listing = FundaRentalListing (
+                    funda_listing = RentalListing (
                         id = listing.listingId,
                         listingCity = listing.listingCity,
                         listingType = listing.listingType,
@@ -45,12 +45,12 @@ async def CreateHuurstuntListingObjects():
                 listings = huurstuntscraper.GetAllRentalListings(cities_huurstunt[i])
 
                 for listing in listings:
-                    listing_exists = session.query(HuurstuntRentalListing).filter(HuurstuntRentalListing.listingUrl == listing.listingUrl).count()
+                    listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
 
                     if listing_exists:
                         continue
 
-                    huurstunt_listing = HuurstuntRentalListing (
+                    huurstunt_listing = RentalListing (
                         id = listing.listingId,
                         listingCity = cities_huurstunt[i],
                         listingType = listing.listingType,
@@ -73,12 +73,12 @@ async def CreateHuislijnListingObjects():
                 listings = huislijnscraper.GetHuislijnRentalListings(cities_huislijn[i])
 
                 for listing in listings:
-                    listing_exists = session.query(HuislijnRentalListing).filter(HuislijnRentalListing.listingUrl == listing.listingUrl).count()
+                    listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
 
                     if listing_exists:
                         continue
 
-                    huislijn_listing = HuislijnRentalListing (
+                    huislijn_listing = RentalListing (
                         id = listing.listingId,
                         listingCity = cities_huislijn[i],
                         listingType = listing.listingType,

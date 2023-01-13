@@ -19,3 +19,4 @@ class User(base):
     max_price = Column(Integer(20), index = True)
     property_sqm = Column(Integer(20), index = True)
 
+
