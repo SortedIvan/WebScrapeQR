@@ -78,7 +78,7 @@ async def CreateHuislijnListingObjects():
                     if listing_exists:
                         continue
 
-                    huurstunt_listing = HuislijnRentalListing (
+                    huislijn_listing = HuislijnRentalListing (
                         id = listing.listingId,
                         listingCity = cities_huislijn[i],
                         listingType = listing.listingType,
@@ -103,5 +103,5 @@ async def CreateHuislijnListingObjects():
                     print(listing.listingUrl)
 
                     print(listing.listingName)
-                    session.add(huurstunt_listing)
+                    session.add(huislijn_listing)
                     session.commit()
