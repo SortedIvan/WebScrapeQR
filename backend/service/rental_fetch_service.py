@@ -2,17 +2,15 @@ from scrapers.funda import fundascraper
 from scrapers.huislijn import huislijnscraper
 from scrapers.huurstunt import huurstuntscraper
 from database.databaseConnection import sessionLocal
-from scheduler.scheduler import sched
-from database.databaseConnection import sessionLocal
 from models.listing import RentalListing
-from service.citites import cities_funda, cities_huurstunt, cities_huislijn
+from service.citites import cities
 
 
 async def CreateFundaRentalListingObjects():
     with sessionLocal() as session:
         try:
-            for i in range(len(cities_funda)):
-                listings = fundascraper.GetFundaRentalListings(cities_funda[i])
+            for i in range(len(cities)):
+                listings = fundascraper.GetFundaRentalListings(cities[i])
 
                 for listing in listings:
                     listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
@@ -41,8 +39,8 @@ async def CreateFundaRentalListingObjects():
 
 async def CreateHuurstuntListingObjects():
     with sessionLocal() as session:
-            for i in range(len(cities_huurstunt)):
-                listings = huurstuntscraper.GetAllRentalListings(cities_huurstunt[i])
+            for i in range(len(cities)):
+                listings = huurstuntscraper.GetAllRentalListings(cities[i])
 
                 for listing in listings:
                     listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
@@ -52,7 +50,7 @@ async def CreateHuurstuntListingObjects():
 
                     huurstunt_listing = RentalListing (
                         id = listing.listingId,
-                        listingCity = cities_huurstunt[i],
+                        listingCity = cities[i],
                         listingType = listing.listingType,
                         listingName = listing.listingName,
                         listingDate = listing.listingDate,
@@ -69,8 +67,8 @@ async def CreateHuurstuntListingObjects():
 
 async def CreateHuislijnListingObjects():
         with sessionLocal() as session:
-            for i in range(len(cities_huislijn)):
-                listings = huislijnscraper.GetHuislijnRentalListings(cities_huislijn[i])
+            for i in range(len(cities)):
+                listings = huislijnscraper.GetHuislijnRentalListings(cities[i])
 
                 for listing in listings:
                     listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
@@ -80,7 +78,7 @@ async def CreateHuislijnListingObjects():
 
                     huislijn_listing = RentalListing (
                         id = listing.listingId,
-                        listingCity = cities_huislijn[i],
+                        listingCity = cities[i],
                         listingType = listing.listingType,
                         listingName = listing.listingName,
                         listingDate = listing.listingDate,
@@ -92,16 +90,5 @@ async def CreateHuislijnListingObjects():
                         listingAdress = listing.listingAdress
                     )
 
-                    print(listing.listingCity)
-                    print(listing.listingType)
-                    print(listing.listingName)
-                    print(listing.listingDate)
-                    print(listing.listingPrice)
-                    print(listing.listingSqm)
-                    print(listing.listingRooms)
-                    print(listing.listingExtraInfo)
-                    print(listing.listingUrl)
-
-                    print(listing.listingName)
                     session.add(huislijn_listing)
                     session.commit()

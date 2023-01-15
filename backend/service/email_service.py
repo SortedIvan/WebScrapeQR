@@ -1,12 +1,11 @@
 from database.databaseConnection import sessionLocal
-from scheduler.scheduler import sched
 from utility_data.userdata import SystemUser
 from models.user import User
 from models.listing import RentalListing, RentalListingUser
 from fastapi_mail import FastMail, MessageType, MessageSchema
 from template.email_template import CreateCustomEmailTemplate
 from config.email_config import conf
-from service.citites import cities_funda
+from service.citites import cities
 from sqlalchemy.sql import and_, text
 
 
@@ -30,18 +29,15 @@ async def SendEmail(listings, user):
 async def SendRentalPropertyEmails():
     with sessionLocal() as session:
         all_users = await FetchAllUsers()
-
-        print ("BEFORE USERS GET")
         for user in all_users:
             #TODO: Add property type
-            print ("Inside user get")
             property_city = user.property_city
             min_price = user.min_price
             max_price = user.max_price
             sqm = user.property_sqm
 
             listings_to_send = session.query(RentalListing) \
-            .filter(RentalListing.listingCity == cities_funda[property_city]) \
+            .filter(RentalListing.listingCity == cities[property_city]) \
             .filter(and_(RentalListing.listingPrice >= min_price, RentalListing.listingPrice <= max_price)) \
             .filter(RentalListing.listingSqm >= sqm).all()
 
@@ -57,7 +53,7 @@ async def SendRentalPropertyEmails():
                     continue
                 listings_to_send_finalized.append(listing)
                 
-        
+
                 session.add(
                     RentalListingUser(
                         property_id = listing.id,

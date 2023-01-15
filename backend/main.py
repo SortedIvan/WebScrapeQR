@@ -1,19 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from scheduler.scheduler import sched
-import service.rental_fetch_service as rental_service
+from service.email_service import SendRentalPropertyEmails
+from models.listing import RentalListingUser, RentalListing
+from apscheduler.schedulers.background import BackgroundScheduler
 from database.databaseConnection import engine, sessionLocal, base
 from routers import user_router
+from utility.stopwatch import time_convert
+import service.rental_fetch_service as rental_service
 import time
-from service.email_service import SendRentalPropertyEmails
-
-
-def time_convert(sec):
-  mins = sec // 60
-  sec = sec % 60
-  hours = mins // 60
-  mins = mins % 60
-  print("Time Lapsed = {0}:{1}:{2}".format(int(hours),int(mins),sec))
 
 app = FastAPI()
 
@@ -36,6 +30,33 @@ base.metadata.create_all(bind=engine)
 
 app.include_router(user_router.router)
 
+
+# --------------- UTILITY METHODS -------------------------
+def TestScheduler():
+  print("hi")
+
+def ClearOutOldRentalListings(sessionLocal):
+  with sessionLocal() as session:   
+    try:
+        session.query(RentalListing).delete()
+        session.query(RentalListingUser).delete()
+        session.commit()
+    except:
+        #session.rollback()
+        print("")
+# -----------------------------------------------------------
+
+
+@app.on_event('startup')
+def init_data():
+    sched = BackgroundScheduler()
+    sched.add_job(TestScheduler, 'cron', second='*/5')
+    #Every day at 12AM, delete all instances of listings from the database and make space for new ones
+    sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
+    sched.start()
+    ClearOutOldRentalListings()
+
+
 @app.get("/")
 async def root():
   #Testing purposes only
@@ -44,8 +65,7 @@ async def root():
 @app.get("/test")
 async def test():
   start_time = time.time()
-  #await rental_service.CreateFundaRentalListingObjects()
-  #await rental_service.CreateHuurstuntListingObjects()
+  await rental_service.CreateFundaRentalListingObjects()
   await rental_service.CreateHuislijnListingObjects()
   end_time = time.time()
   time_lapsed = end_time - start_time
@@ -56,6 +76,4 @@ async def test():
 async def TestSendEmails():
   await SendRentalPropertyEmails()
 
-# Every day at 12AM, delete all instances of listings from the database and make space for new ones
-#@sched.scheduled_job('cron', day_of_week='mon-sun', hour=24)
 
