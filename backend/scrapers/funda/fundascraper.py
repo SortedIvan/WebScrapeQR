@@ -94,6 +94,9 @@ def GetFundaRentalListings(city):
             listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
             listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
             listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()
+            listing_price.replace('€', '')
+            listing_price = listing_price.replace('.', '')
+
             listing_living_details = []
 
             listing_living_details_set = listing_header_details.find_all('span', attrs = {'class': 'kenmerken-highlighted__value fd-text--nowrap'})
@@ -109,8 +112,8 @@ def GetFundaRentalListings(city):
                         "Rental property",
                         listing_title,
                         "Today",
-                        listing_price,
-                        listing_living_details[0],
+                        int(listing_price),
+                        int(listing_living_details[0]),
                         listing_living_details[2],
                         f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
                         link,

@@ -5,6 +5,8 @@ import service.rental_fetch_service as rental_service
 from database.databaseConnection import engine, sessionLocal, base
 from routers import user_router
 import time
+from service.email_service import SendRentalPropertyEmails
+
 
 def time_convert(sec):
   mins = sec // 60
@@ -41,16 +43,18 @@ async def root():
 
 @app.get("/test")
 async def test():
-    start_time = time.time()
-    #await rental_service.CreateFundaRentalListingObjects()
-    #await rental_service.CreateHuurstuntListingObjects()
-    await rental_service.CreateHuislijnListingObjects()
-    end_time = time.time()
-    time_lapsed = end_time - start_time
-    time_it_took = time_convert(time_lapsed)
-    return {"message" : "Hi!", "time_it_took":str(time_it_took)}
+  start_time = time.time()
+  #await rental_service.CreateFundaRentalListingObjects()
+  #await rental_service.CreateHuurstuntListingObjects()
+  await rental_service.CreateHuislijnListingObjects()
+  end_time = time.time()
+  time_lapsed = end_time - start_time
+  time_it_took = time_convert(time_lapsed)
+  return {"message" : "Hi!", "time_it_took":str(time_it_took)}
 
-
+@app.get("/test_user_email")
+async def TestSendEmails():
+  await SendRentalPropertyEmails()
 
 # Every day at 12AM, delete all instances of listings from the database and make space for new ones
 #@sched.scheduled_job('cron', day_of_week='mon-sun', hour=24)

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer
 from database.databaseConnection import base
 
 class RentalListing(base):
@@ -8,8 +8,8 @@ class RentalListing(base):
     listingType = Column(String(255), index = True)
     listingName = Column(String(255), index = True)
     listingDate = Column(String(255),index=True)
-    listingPrice = Column(String(255),index=True)
-    listingSqm = Column(String(255),index=True)
+    listingPrice = Column(Integer,index=True)
+    listingSqm = Column(Integer,index=True)
     listingRooms = Column(String(255),index=True)
     listingExtraInfo = Column(String(255),index=True)
     listingUrl = Column(String(255), index = True)

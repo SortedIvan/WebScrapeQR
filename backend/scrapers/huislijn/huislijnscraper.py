@@ -82,16 +82,23 @@ def GetHuislijnRentalListings(city):
         zip = address_and_zip.find('span', attrs = {'class': 'zip'}).text.split()
         address = address_and_zip.find('span', attrs = {'class': 'place'}).text.split()
         price = huislijn_properties_soups[i].find('div', attrs = {'class':'pricing'}).text.split()
-        sqm = re.findall("\d+", str(address))[0] + "sqm"
-        
+        sqm = re.findall("\d+", str(address))[0]
+
         if type(name) is list:
             name = ' '.join(name)
         if type(address) is list:
             address = ''.join(address)
         if type(price) is list:
             price = ''.join(price)
+            if not price.__contains__("Ikwilmeerinformatieoverdezehuurwoning"):
+                price = price.replace('€', '')
             if price.__contains__("Ikwilmeerinformatieoverdezehuurwoning"):
                 price = price.replace("Ikwilmeerinformatieoverdezehuurwoning", "")
+                price = price.replace('€', '')
+        
+
+        price = price.replace('.', '')
+
         if (type(zip) is list):
             zip = ''.join(zip)
 
@@ -101,8 +108,8 @@ def GetHuislijnRentalListings(city):
                 "Rental property",
                 name,
                 "Today",
-                price,
-                sqm,
+                int(price),
+                int(sqm),
                 "Unavailable",
                 "None",
                 "https://www.huislijn.nl" + huislijn_property_links[i],
