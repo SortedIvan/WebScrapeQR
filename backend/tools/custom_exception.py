@@ -1,0 +1,2 @@
+class NoneException(Exception):
+    pass

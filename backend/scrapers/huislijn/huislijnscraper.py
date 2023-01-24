@@ -97,7 +97,8 @@ def GetHuislijnRentalListings(city):
                 price = price.replace('€', '')
         
 
-        price = price.replace('.', '')
+        price = ''.join(filter(lambda i: i.isdigit(), price))
+        sqm = ''.join(filter(lambda i: i.isdigit(), price))
 
         if (type(zip) is list):
             zip = ''.join(zip)

@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Boolean, Integer
+from sqlalchemy.types import LargeBinary
 from database.databaseConnection import base
 
 
@@ -11,7 +12,7 @@ class User(base):
     id=Column(String(255),primary_key=True,index=True)
     username = Column(String(255), index = True)
     email = Column(String(255), index = True)
-    password = Column(String(255), index = True)
+    password = Column(LargeBinary, index = True)
     subscribed = Column((Boolean),index=True)
     property_city = Column(Integer, index = True)
     property_type = Column(Integer, index = True)
@@ -19,4 +20,8 @@ class User(base):
     max_price = Column(Integer, index = True)
     property_sqm = Column(Integer, index = True)
 
-
+class UserSalt(base):
+    __tablename__ = "usersalts"
+    user_id = Column(String(255), primary_key = True, index = True)
+    user_salt = Column(String(255), index = True)
+    user_key = Column(LargeBinary, index = True)

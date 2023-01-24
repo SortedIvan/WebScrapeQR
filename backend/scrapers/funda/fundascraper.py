@@ -93,17 +93,21 @@ def GetFundaRentalListings(city):
 
             listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
             listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
-            listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()
-            listing_price.replace('€', '')
-            listing_price = listing_price.replace('.', '')
+            listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()    
+            listing_price = ''.join(filter(lambda i: i.isdigit(), listing_price))
 
             listing_living_details = []
 
             listing_living_details_set = listing_header_details.find_all('span', attrs = {'class': 'kenmerken-highlighted__value fd-text--nowrap'})
+
             for listing_living_detail in listing_living_details_set:
                 listing_living_details.append(listing_living_detail.text.strip())
             
             listing_deposit = listing_soup.find('dd',attrs= {'class': 'object-kenmerken-group-list'}).text.strip()
+
+            if len(listing_living_details) != 0:
+                listing_living_details[0] = ''.join(filter(lambda i: i.isdigit(), listing_living_details[0]))
+                listing_living_details[0] = listing_living_details[0].replace('²', '')
 
             if len(listing_living_details) == 3:
                 rental_listings.append(
@@ -129,7 +133,7 @@ def GetFundaRentalListings(city):
                         "Rental property",
                         listing_title,
                         "Today",
-                        listing_price,
+                        int(listing_price),
                         listing_living_details[0],
                         listing_living_details[1],
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
@@ -146,7 +150,7 @@ def GetFundaRentalListings(city):
                         "Rental property",
                         listing_title,
                         "Today",
-                        listing_price,
+                        int(listing_price),
                         listing_living_details[0],
                         "Unavailable",
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
@@ -155,6 +159,24 @@ def GetFundaRentalListings(city):
                         city
                     )
                 )
+            
+            if len(listing_living_details) == 0:
+                rental_listings.append(
+                    RentalListing(
+                        str(uuid.uuid4()),
+                        "Rental property",
+                        listing_title,
+                        "Today",
+                        int(listing_price),
+                        0,
+                        "Unavailable",
+                        f"Deposit: {listing_deposit} | Property size: Unavailable",
+                        link,
+                        listing_title + " " + listing_subtitle,
+                        city
+                    )
+                )
+
         except Exception as e:
             print(e)
             print(link)

@@ -35,7 +35,7 @@ app.include_router(user_router.router)
 def TestScheduler():
   print("hi")
 
-def ClearOutOldRentalListings(sessionLocal):
+def ClearOutOldRentalListings():
   with sessionLocal() as session:   
     try:
         session.query(RentalListing).delete()
@@ -50,11 +50,11 @@ def ClearOutOldRentalListings(sessionLocal):
 @app.on_event('startup')
 def init_data():
     sched = BackgroundScheduler()
-    sched.add_job(TestScheduler, 'cron', second='*/5')
+    #sched.add_job(TestScheduler, 'cron', second='*/5')
+
     #Every day at 12AM, delete all instances of listings from the database and make space for new ones
     sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.start()
-    ClearOutOldRentalListings()
 
 
 @app.get("/")
@@ -68,9 +68,11 @@ async def test():
   await rental_service.CreateFundaRentalListingObjects()
   await rental_service.CreateHuislijnListingObjects()
   end_time = time.time()
+
   time_lapsed = end_time - start_time
-  time_it_took = time_convert(time_lapsed)
-  return {"message" : "Hi!", "time_it_took":str(time_it_took)}
+  print(time_convert(time_lapsed))
+
+  return {"message" : "Sucessful"}
 
 @app.get("/test_user_email")
 async def TestSendEmails():
