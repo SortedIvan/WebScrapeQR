@@ -122,7 +122,8 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
                         link,
                         listing_title + " " + listing_subtitle,
-                        city
+                        city,
+                        "Unavailable"
                     )
                 )
 
@@ -139,7 +140,8 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link,
                         listing_title + " " + listing_subtitle,
-                        city
+                        city,
+                        "Unavailable"
                     )
                 )
 
@@ -156,7 +158,8 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link,
                         listing_title + " " + listing_subtitle,
-                        city
+                        city,
+                        "Unavailable"
                     )
                 )
             
@@ -173,7 +176,8 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link,
                         listing_title + " " + listing_subtitle,
-                        city
+                        city,
+                        "Unavailable"
                     )
                 )
 

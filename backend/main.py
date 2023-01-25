@@ -62,10 +62,10 @@ async def root():
   #Testing purposes only
   return {"message": "Welcome to Rentswipe!"}
 
-@app.get("/test")
+@app.get("/api/CreateRentalObjects")
 async def test():
   start_time = time.time()
-  await rental_service.CreateFundaRentalListingObjects()
+  #await rental_service.CreateFundaRentalListingObjects()
   await rental_service.CreateHuislijnListingObjects()
   end_time = time.time()
 

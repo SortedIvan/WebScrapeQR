@@ -29,7 +29,8 @@ async def CreateFundaRentalListingObjects():
                         listingRooms = listing.listingRooms,
                         listingExtraInfo = listing.listingExtraInfo,
                         listingUrl = listing.listingUrl,
-                        listingAdress = listing.listingAdress
+                        listingAdress = listing.listingAdress,
+                        listingImageUrl = listing.imageUrl
                     )
                     print(listing.listingName)
                     session.add(funda_listing)
@@ -59,7 +60,8 @@ async def CreateHuurstuntListingObjects():
                         listingRooms = listing.listingRooms,
                         listingExtraInfo = listing.listingExtraInfo,
                         listingUrl = listing.listingUrl,
-                        listingAdress = listing.listingAdress
+                        listingAdress = listing.listingAdress,
+                        listingImageUrl = listing.imageUrl
                     )
                     print(listing.listingName)
                     session.add(huurstunt_listing)
@@ -87,7 +89,8 @@ async def CreateHuislijnListingObjects():
                         listingRooms = listing.listingRooms,
                         listingExtraInfo = listing.listingExtraInfo,
                         listingUrl = listing.listingUrl,
-                        listingAdress = listing.listingAdress
+                        listingAdress = listing.listingAdress,
+                        listingImageUrl = listing.imageUrl
                     )
 
                     session.add(huislijn_listing)

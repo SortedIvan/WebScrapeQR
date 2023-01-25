@@ -92,6 +92,7 @@ async def SetUserPreferences(preference: UserPreference, useremail):
         user.property_sqm = preference.dict().get("property_sqm")
         
         session.commit()
+        
         return JSONResponse(status_code=200, 
                         content = {"message": "User preferences succesfuly updated."})
 

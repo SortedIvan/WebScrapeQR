@@ -8,8 +8,6 @@ from config.email_config import conf
 from service.citites import cities
 from sqlalchemy.sql import and_, text
 
-
-
 async def FetchAllUsers() -> list:
     with sessionLocal() as session:
         return session.query(User).all()

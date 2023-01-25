@@ -5,6 +5,7 @@ def CreateHtmlForProperty(property):
     print(property.listingName)
     property_string = f"""
                     <div style="border: 1px solid #ccc; padding: 10px; margin: 10px auto; box-shadow: 2px 2px 8px #ccc; border-radius: 5px; background-color: #f5f5f5; width: 600px; text-align:center;">
+                        <img src="{property.listingImageUrl}">
                         <h2 style="margin-top: 0; font-size: 20px; font-weight: normal;">{property.listingName}</h2>
                         <h3 style="margin: 5px 0; font-size: 14px;>Pricing: {property.listingAdress}</h3>
                         <p style="margin: 5px 0; font-size: 14px;>{property.listingCity}</p>

@@ -48,30 +48,38 @@ def ConvertHuislijnHtml(city):
         soups.append(BeautifulSoup(results[i].text, "html.parser"))
     return soups
 
-def GetHuislijnRentalListingLinks(city):
+def GetHuislijnLinksAndImages(city):
     huislijn_soups = ConvertHuislijnHtml(city)
     links = []
     for soup in huislijn_soups:
         all_listings = soup.find_all('div', attrs = {'class': 'object-panel'})
         for listing in all_listings:
-            #details = listing.find('div', attrs = {'class': 'object-details'})
             for a in listing.find_all('a', href = True):
-                links.append(a['href'])
+                link = a['href']
+
+            img_obj = listing.find('img')
+            if img_obj.has_attr('src'):
+                image_url = img_obj['src']
+            else: image_url = "Empty"
+            
+            links.append((link, image_url))
     return links
 
 def GetHuislijnRentalListingSoups(city):
-    huislijn_property_links = GetHuislijnRentalListingLinks(city)
+    huislijn_property_links = GetHuislijnLinksAndImages(city)
     final_listing_soups = []
     
     for i in range(len(huislijn_property_links)):
-        final_listing_soups.append(BeautifulSoup(requests.get(url_base + huislijn_property_links[i], headers=headers).text,  "html.parser"))
+        final_listing_soups.append(BeautifulSoup(requests.get(url_base + huislijn_property_links[i][0], headers=headers).text,  "html.parser"))
 
     return (final_listing_soups,huislijn_property_links)
 
 
 def GetHuislijnRentalListings(city):
-    huislijn_properties_soups = GetHuislijnRentalListingSoups(city)[0]
-    huislijn_property_links =  GetHuislijnRentalListingSoups(city)[1]
+    #TODO: Make this into one function call
+    soups_and_links = GetHuislijnRentalListingSoups(city)
+    huislijn_properties_soups = soups_and_links[0]
+    huislijn_property_links =  soups_and_links[1]
 
     rental_listings = []
 
@@ -82,7 +90,14 @@ def GetHuislijnRentalListings(city):
         zip = address_and_zip.find('span', attrs = {'class': 'zip'}).text.split()
         address = address_and_zip.find('span', attrs = {'class': 'place'}).text.split()
         price = huislijn_properties_soups[i].find('div', attrs = {'class':'pricing'}).text.split()
-        sqm = re.findall("\d+", str(address))[0]
+
+
+        #TODO: Change sqm_property to be one value for evertyhing
+        try: # We attempt to find the SQM in the address string
+            sqm_property = re.findall("\d+", str(address[1]))
+            sqm_property = sqm_property[0]
+        except: # In case that it is not found, we replace with 0 (or Unavaiable)
+            sqm_property = 20
 
         if type(name) is list:
             name = ' '.join(name)
@@ -95,11 +110,12 @@ def GetHuislijnRentalListings(city):
             if price.__contains__("Ikwilmeerinformatieoverdezehuurwoning"):
                 price = price.replace("Ikwilmeerinformatieoverdezehuurwoning", "")
                 price = price.replace('€', '')
-        
 
+        print(sqm_property)
         price = ''.join(filter(lambda i: i.isdigit(), price))
-        sqm = ''.join(filter(lambda i: i.isdigit(), price))
+        sqm = sqm_property
 
+        print(sqm)
         if (type(zip) is list):
             zip = ''.join(zip)
 
@@ -113,9 +129,10 @@ def GetHuislijnRentalListings(city):
                 int(sqm),
                 "Unavailable",
                 "None",
-                "https://www.huislijn.nl" + huislijn_property_links[i],
+                "https://www.huislijn.nl" + huislijn_property_links[i][0],
                 name + " " + zip,
-                city
+                city,
+                huislijn_property_links[i][1] # IMAGE LINK
             )
         )
     return rental_listings

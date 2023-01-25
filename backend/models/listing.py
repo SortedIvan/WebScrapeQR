@@ -14,6 +14,7 @@ class RentalListing(base):
     listingExtraInfo = Column(String(255),index=True)
     listingUrl = Column(String(255), index = True)
     listingAdress = Column(String(255), index = True)
+    listingImageUrl = Column(String(255), index = True)
 
 class RentalCity(base):
     __tablename__ = "rental_citites"
