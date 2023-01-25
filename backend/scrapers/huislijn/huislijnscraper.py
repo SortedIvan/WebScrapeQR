@@ -94,7 +94,11 @@ def GetHuislijnRentalListings(city):
 
         #TODO: Change sqm_property to be one value for evertyhing
         try: # We attempt to find the SQM in the address string
-            sqm_property = re.findall("\d+", str(address[1]))
+            if city == "den-haag" or city == "den-bosch":
+                sqm_property = re.findall("\d+", str(address[2]))
+            else: 
+                sqm_property = re.findall("\d+", str(address[1]))
+            print(sqm_property)
             sqm_property = sqm_property[0]
         except: # In case that it is not found, we replace with 0 (or Unavaiable)
             sqm_property = 20
@@ -111,11 +115,8 @@ def GetHuislijnRentalListings(city):
                 price = price.replace("Ikwilmeerinformatieoverdezehuurwoning", "")
                 price = price.replace('€', '')
 
-        print(sqm_property)
         price = ''.join(filter(lambda i: i.isdigit(), price))
         sqm = sqm_property
-
-        print(sqm)
         if (type(zip) is list):
             zip = ''.join(zip)
 
