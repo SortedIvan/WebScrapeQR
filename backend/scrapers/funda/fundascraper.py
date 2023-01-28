@@ -53,33 +53,45 @@ def GetFundaRentalListingLinks(city):
         search_content = soup.find('div', attrs = {'class': 'search-content-output'})
         search_content_listings = search_content.find_all('li', attrs = {'class': 'search-result'})
         for listing in search_content_listings:
-            try:
+            #try:
                 if not listing:
                     continue
+                img_obj = listing.find('div', attrs = {'class': 'search-result-media'}) \
+                    .find('div', attrs = {'class': 'search-result-image'}) \
+                    .find('img')
+                
+                if img_obj.has_attr('src'):
+                    image_href = img_obj['src']
+                                                                
                 if listing.find('div', attrs = {'class': 'search-promolabel-new'}):
                     listing_content = listing.find('div', attrs = {'class': 'search-result-content-promo'})
                     listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
-                    links.append(listing_href)
+                
+                    if image_href is None:
+                        links.append((listing_href,"Unavailable"))
+                    else: 
+                        links.append((listing_href,image_href))
                     continue
+                
                 listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
                 listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
-                links.append(listing_href)
-            except Exception as e:
-                print(e)
-                print(listing)
-                print(listing_content)
+                if image_href is None:
+                    links.append((listing_href,"Unavailable"))
+                else: 
+                    links.append((listing_href,image_href))
                 
     return links
 
 def GetFundaRentalListings(city):
-    funda_listing_links = GetFundaRentalListingLinks(city)
+    image_and_listing_links = GetFundaRentalListingLinks(city)
+
     rental_listings = []
-    if funda_listing_links is None:
+    if image_and_listing_links is None:
         return None
 
-    for link in funda_listing_links:
+    for link in image_and_listing_links:
         try:
-            listing_html = requests.get(link, headers=headers)
+            listing_html = requests.get(link[0], headers=headers)
             listing_soup = BeautifulSoup(listing_html.text, "html.parser")
 
 
@@ -120,10 +132,10 @@ def GetFundaRentalListings(city):
                         int(listing_living_details[0]),
                         listing_living_details[2],
                         f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
-                        link,
+                        link[0],
                         listing_title + " " + listing_subtitle,
                         city,
-                        "Unavailable"
+                        link[1]
                     )
                 )
 
@@ -138,10 +150,10 @@ def GetFundaRentalListings(city):
                         listing_living_details[0],
                         listing_living_details[1],
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
-                        link,
+                        link[0],
                         listing_title + " " + listing_subtitle,
                         city,
-                        "Unavailable"
+                        link[1]
                     )
                 )
 
@@ -156,10 +168,10 @@ def GetFundaRentalListings(city):
                         listing_living_details[0],
                         "Unavailable",
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
-                        link,
+                        link[0],
                         listing_title + " " + listing_subtitle,
                         city,
-                        "Unavailable"
+                        link[1]
                     )
                 )
             
@@ -174,10 +186,10 @@ def GetFundaRentalListings(city):
                         0,
                         "Unavailable",
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
-                        link,
+                        link[0],
                         listing_title + " " + listing_subtitle,
                         city,
-                        "Unavailable"
+                        link[1]
                     )
                 )
 

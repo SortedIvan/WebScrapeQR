@@ -28,11 +28,19 @@ async def SendRentalPropertyEmails():
     with sessionLocal() as session:
         all_users = await FetchAllUsers()
         for user in all_users:
+
+            #send_message: make sure that the user needs to be sent an email or not
+            send_message = True
             #TODO: Add property type
             property_city = user.property_city
             min_price = user.min_price
             max_price = user.max_price
             sqm = user.property_sqm
+
+            if sqm != 0: # If the user has not specified the sqm requirements
+                listings_to_send = session.query(RentalListing) \
+                .filter(RentalListing.listingCity == cities[property_city]) \
+                .filter(and_(RentalListing.listingPrice >= min_price, RentalListing.listingPrice <= max_price)).all()
 
             listings_to_send = session.query(RentalListing) \
             .filter(RentalListing.listingCity == cities[property_city]) \
@@ -48,10 +56,10 @@ async def SendRentalPropertyEmails():
             for listing in listings_to_send:         
                 # If the listing has already been assigned to the user, we skip the user
                 if session.query(RentalListingUser).filter(RentalListingUser.property_id == str(listing.id)).filter(RentalListingUser.user_id == user.id).count() > 0:
+                    send_message = False
                     continue
                 listings_to_send_finalized.append(listing)
                 
-
                 session.add(
                     RentalListingUser(
                         property_id = listing.id,
@@ -59,7 +67,8 @@ async def SendRentalPropertyEmails():
                         )
                 )
                 session.commit()
-            await SendEmail(listings_to_send_finalized, user)
+            
+            if send_message: await SendEmail(listings_to_send_finalized, user)
 
 
             

@@ -22,7 +22,6 @@ def CheckUserEmail(useremail, session):
         print("Testing API")
     return True
 
-
 @router.post("/api/register")
 async def register(userdata: UserData):
     with sessionLocal() as session:

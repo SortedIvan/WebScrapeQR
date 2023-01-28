@@ -15,8 +15,7 @@ def CreateHtmlForProperty(property):
                     </div>
                       """ 
     return property_string
-
-
+    
 def CreateCustomEmailTemplate(user, properties):
     html_string = """
             <html>
