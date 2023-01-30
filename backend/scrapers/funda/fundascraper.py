@@ -121,6 +121,9 @@ def GetFundaRentalListings(city):
                 listing_living_details[0] = ''.join(filter(lambda i: i.isdigit(), listing_living_details[0]))
                 listing_living_details[0] = listing_living_details[0].replace('²', '')
 
+
+            city = city.lower() # Ensuring that the cities are one format
+
             if len(listing_living_details) == 3:
                 rental_listings.append(
                     RentalListing(

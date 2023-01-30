@@ -3,83 +3,105 @@ import json
 import uuid
 from bs4 import BeautifulSoup
 from utility_data.rental_listing_data import RentalListing
+from requests_html import HTMLSession
 
-headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
+base_url = "https://www.huurstunt.nl"
+url = "https://www.huurstunt.nl/public/api/search"
 
-def GetHuurstuntRentalHtml(city, page):
-    if page == 1:
-        return requests.get(
-            "https://www.huurstunt.nl/huren/" + city + "/",
-            headers = headers
-        )
-    return requests.get(
-        f"https://www.huurstunt.nl/huren/{city}/p{page}",
-        headers = headers
-    )
+payload_json = {
+  "force": False,
+  "location": {
+    "location": "Nederland",
+    "distance": None,
+    "suggestType": "country",
+    "suggestId": None,
+    "neighborhoodSlug": None,
+    "streetSlug": None,
+    "districtSlug": None
+  },
+  "price": {
+    "from": 0,
+    "till": 100000
+  },
+  "properties": {
+    "rooms": 0,
+    "livingArea": 0,
+    "deliveryLevel": None,
+    "rentalType": None,
+    "outside": []
+  },
+  "page": 1,
+  "sorting": "datum-af",
+  "resultsPerPage": 21
+}
 
-def GetHuurstuntRentalSoups(city):
-    all_listing_soups = []
 
-    # for the first 5 pages
-    for i in range(0, 5):
-        all_listing_soups.append(
-            BeautifulSoup(GetHuurstuntRentalHtml(city, i).text, "html.parser")
-        )
+headers = {
+  "accept-encoding": "gzip, deflate",
+  'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,da;q=0.7',
+  'Origin': 'https://www.huurstunt.nl',
+  'Referer': 'https://www.huurstunt.nl/huren/eindhoven/',
+  'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+  'Content-Type': 'application/json',
+  'Cookie': 'PHPSESSID=d9c5ad595b1e00dc88ea8224a6ceb308'
+}
 
-    return all_listing_soups
 
-def GetImageAndListingLinks(city):
-    all_listing_soups = GetHuurstuntRentalSoups(city)
-    image_links = []
-    listing_links = []
+def GetAllListingJsons():
+    all_jsons = []
+    for i in range(1,30): # We check the first 50 pages
+        payload_json['page'] = i
+        payload = json.dumps(payload_json)
+        response = requests.request('POST', url, headers=headers, data=payload).json()
+        all_jsons.append(response)
+    return all_jsons
 
-    for i in range(len(all_listing_soups)):
-        individual_listings = all_listing_soups[i].find_all('div', attrs = {'class': 'rental-card-wide col-lg-12 col-md-12'})
 
-        for listing in individual_listings:
-            # in case the element is actually new
-            if listing.find('span', attrs = {'class': 'property-type property--green'}):
-                try:
-                    listing_url = listing.find('a', href = True)['href']
-                except:
-                    print("Image_url does not exist")
-                
-                try:
-                    image_url_obj = listing.find('img')
-                    
-                    if image_url_obj.has_attr('src'):
-                        image_url = image_url_obj['src']
-                    else: listing_url = "Empty"
-                except:
-                    print("Image url does not exist")
-                image_links.append(image_url)
-                listing_links.append(listing_url)
-    return listing_links, image_links
+def GetAllListings():
+    all_jsons = GetAllListingJsons()
+    all_listings = []
+    for i in range(len(all_jsons)):
+        for listing in all_jsons[i]['data']['rentals']:
+            if listing['isNew'] != True:
+                continue
+            if listing['isBlurred']:
+                continue
+            if listing['status'] == 5:
+                continue
+            if listing['city'] == "Zaandam" or listing['city'] == 'Westzaan' or listing['city'] == 'Heemskerk' or listing['city'] == 'Wormerveer' or listing['city'] == 'Assendelft':
+                listing['city'] = "gemeente-zaanstad"
 
-def GetIndividualListingSoups(city):
-    all_links = GetImageAndListingLinks(city)
-    listing_links = all_links[0]
-    individual_listings = []
+            if listing['city'] == "Den Haag":
+                listing['city'] = 'den-haag'
 
-    for i in range(len(listing_links)):
-        individual_listings.append(
-            BeautifulSoup
-                (
-                requests.get(listing_links[i]).text, "html.parser"
-                )
+            if listing['city'] == 'Nootdorp':
+                listing['city'] = 'zoetermeer'
+
+            if listing['city'] == 'Vlijmen':
+                listing['city'] = 'den-bosch'
+
+            if listing['city'] == 'Den Bosch':
+                listing['city'] = 'den-bosch'
+
+            try:
+                listing['city'] = listing['city'].lower() # All cities should be one format
+            except:
+                print("listing city does not exist")
+
+            rental = RentalListing(
+                str(uuid.uuid4()),
+                listing['type'],
+                listing['title'],
+                "Today",
+                listing['price'],
+                listing['floorspace'],
+                listing['rooms'],
+                "None",
+                base_url + listing['url'],
+                listing['city'] + " " + listing['street'],
+                listing['city'],
+                listing['image']['src']
             )
-    
-    return all_links, individual_listings
+            all_listings.append(rental)
+    return all_listings
 
-def GetAllHuurstuntRentals(city):
-    links_and_soups = GetIndividualListingSoups(city)
-    image_links = links_and_soups[0]
-    listings = links_and_soups[1]
-    
-    for listing in listings:
-        try:
-            main_container = listing.find('div', attrs = {'class': 'container'})
-        except:
-            print("Main container does not exist. Skipping listing")
-
-        

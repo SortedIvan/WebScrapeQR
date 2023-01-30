@@ -39,11 +39,18 @@ def ClearOutOldRentalListings():
   with sessionLocal() as session:   
     try:
         session.query(RentalListing).delete()
-        session.query(RentalListingUser).delete()
         session.commit()
     except:
         #session.rollback()
-        print("")
+        return
+
+def ClearOutOldUserRentalConnections():
+  with sessionLocal() as session:
+    try:
+      session.query(RentalListingUser).delete()
+    except:
+      #session.rollback()
+      return
 # -----------------------------------------------------------
 
 
@@ -54,6 +61,7 @@ def init_data():
 
     #Every day at 12AM, delete all instances of listings from the database and make space for new ones
     sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
+    sched.add_job(ClearOutOldUserRentalConnections, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.start()
 
 
@@ -65,14 +73,18 @@ async def root():
 @app.get("/api/CreateRentalObjects")
 async def test():
   start_time = time.time()
+  #First wipe, the database
+  ClearOutOldRentalListings()
+
   await rental_service.CreateFundaRentalListingObjects()
   await rental_service.CreateHuislijnListingObjects()
+  await rental_service.CreateHuurstuntListingObjects()
   end_time = time.time()
 
   time_lapsed = end_time - start_time
   print(time_convert(time_lapsed))
 
-  return {"message" : "Sucessful"}
+  return {"message" : "Sucessful", "time_it_took":str(time_convert(time_lapsed))}
 
 @app.get("/test_user_email")
 async def TestSendEmails():

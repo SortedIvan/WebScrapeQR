@@ -37,20 +37,25 @@ async def SendRentalPropertyEmails():
             max_price = user.max_price
             sqm = user.property_sqm
 
-            if sqm != 0: # If the user has not specified the sqm requirements
+            print(property_city)
+            print(min_price)
+            print(max_price)
+            print(sqm)
+
+            if sqm == 0: # If has not specified the sqm requirements
                 listings_to_send = session.query(RentalListing) \
                 .filter(RentalListing.listingCity == cities[property_city]) \
                 .filter(and_(RentalListing.listingPrice >= min_price, RentalListing.listingPrice <= max_price)).all()
-
-            listings_to_send = session.query(RentalListing) \
-            .filter(RentalListing.listingCity == cities[property_city]) \
-            .filter(and_(RentalListing.listingPrice >= min_price, RentalListing.listingPrice <= max_price)) \
-            .filter(RentalListing.listingSqm >= sqm).all()
+                
+            else:
+                listings_to_send = session.query(RentalListing) \
+                .filter(RentalListing.listingCity == cities[property_city]) \
+                .filter(and_(RentalListing.listingPrice >= min_price, RentalListing.listingPrice <= max_price)) \
+                .filter(RentalListing.listingSqm >= sqm).all()
 
             listings_to_send_finalized = []
 
             # If no properties are found with the user specifications, we skip the user
-           
             if len(listings_to_send) == 0:
                 continue
             for listing in listings_to_send:         

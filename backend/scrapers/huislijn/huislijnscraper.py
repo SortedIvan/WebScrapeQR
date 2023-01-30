@@ -120,6 +120,7 @@ def GetHuislijnRentalListings(city):
         if (type(zip) is list):
             zip = ''.join(zip)
 
+        city = city.lower() # Ensuring that cities are one format
         rental_listings.append(
             RentalListing(
                 str(uuid.uuid4()),
