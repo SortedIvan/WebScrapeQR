@@ -1,6 +1,7 @@
 from scrapers.funda import fundascraper
 from scrapers.huislijn import huislijnscraper
 from scrapers.huurstunt import huurstuntscraper
+from scrapers.brickvast import brickvastscraper
 from database.databaseConnection import sessionLocal
 from models.listing import RentalListing
 from service.citites import cities
@@ -93,3 +94,33 @@ async def CreateHuislijnListingObjects():
 
                     session.add(huislijn_listing)
                     session.commit()
+
+async def CreateBrickvastRentalObjects():
+    with sessionLocal() as session:
+        listings = brickvastscraper.GetAllBrickvastRentalListings()
+        for listing in listings:
+            listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
+
+            if listing_exists:
+                continue
+
+            brickvast_listing = RentalListing (
+                id = listing.listingId,
+                listingCity = listing.listingCity,
+                listingType = listing.listingType,
+                listingName = listing.listingName,
+                listingDate = listing.listingDate,
+                listingPrice = listing.listingPrice,
+                listingSqm = listing.listingSqm,
+                listingRooms = listing.listingRooms,
+                listingExtraInfo = listing.listingExtraInfo,
+                listingUrl = listing.listingUrl,
+                listingAdress = listing.listingAdress,
+                listingImageUrl = listing.imageUrl
+            )
+
+            session.add(brickvast_listing)
+            session.commit()            
+            
+
+  

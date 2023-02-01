@@ -73,12 +73,14 @@ async def root():
 @app.get("/api/CreateRentalObjects")
 async def test():
   start_time = time.time()
-  #First wipe, the database
-  ClearOutOldRentalListings()
-
+  
   await rental_service.CreateFundaRentalListingObjects()
   await rental_service.CreateHuislijnListingObjects()
   await rental_service.CreateHuurstuntListingObjects()
+
+  #Eindhoven specific
+  await rental_service.CreateBrickvastRentalObjects()
+
   end_time = time.time()
 
   time_lapsed = end_time - start_time
