@@ -41,7 +41,7 @@ def GetAllBrickvastRentalListings():
     
         rental = RentalListing(
             str(uuid.uuid4()),
-            "room",
+            "rental",
             address_and_title,
             "Today",
             price_number,

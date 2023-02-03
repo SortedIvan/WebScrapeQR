@@ -2,6 +2,7 @@ from scrapers.funda import fundascraper
 from scrapers.huislijn import huislijnscraper
 from scrapers.huurstunt import huurstuntscraper
 from scrapers.brickvast import brickvastscraper
+from scrapers.budgethousing import budgethousingscraper
 from database.databaseConnection import sessionLocal
 from models.listing import RentalListing
 from service.citites import cities
@@ -95,6 +96,8 @@ async def CreateHuislijnListingObjects():
                     session.add(huislijn_listing)
                     session.commit()
 
+
+# --------------eindhoven specific-------------------------
 async def CreateBrickvastRentalObjects():
     with sessionLocal() as session:
         listings = brickvastscraper.GetAllBrickvastRentalListings()
@@ -121,6 +124,32 @@ async def CreateBrickvastRentalObjects():
 
             session.add(brickvast_listing)
             session.commit()            
-            
 
+async def CreateBudgetHousingRentalObjects():
+    with sessionLocal() as session:
+        listings = budgethousingscraper.GetAllBrickvastRentalListings()
+        for listing in listings:
+            listing_exists = session.query(RentalListing).filter(RentalListing.listingUrl == listing.listingUrl).count()
+
+            if listing_exists:
+                continue
+
+            budgethousinglisting = RentalListing (
+                id = listing.listingId,
+                listingCity = listing.listingCity,
+                listingType = listing.listingType,
+                listingName = listing.listingName,
+                listingDate = listing.listingDate,
+                listingPrice = listing.listingPrice,
+                listingSqm = listing.listingSqm,
+                listingRooms = listing.listingRooms,
+                listingExtraInfo = listing.listingExtraInfo,
+                listingUrl = listing.listingUrl,
+                listingAdress = listing.listingAdress,
+                listingImageUrl = listing.imageUrl
+            )
+
+            session.add(budgethousinglisting)
+            session.commit()   
   
+# ----------------end eindhoven---------------------------
