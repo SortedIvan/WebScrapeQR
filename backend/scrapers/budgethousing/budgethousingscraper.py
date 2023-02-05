@@ -77,12 +77,3 @@ def GetBudgetHousingListings():
         rentals.append(rental)
 
     return rentals
-
-print(GetBudgetHousingListings())
-rentals = GetBudgetHousingListings()
-for rental in rentals:
-    print(rental.listingName)
-    print(rental.listingPrice)
-    print(rental.listingRooms)
-    print(rental.listingUrl)
-    print(rental.imageUrl)

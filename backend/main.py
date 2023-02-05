@@ -80,11 +80,12 @@ async def test():
   await rental_service.CreateHuislijnListingObjects()
   await rental_service.CreateHuurstuntListingObjects()
   #-------------------end general---------------------------
-  
+
   #------------------eindhoven specific-----------------------
   await rental_service.CreateBrickvastRentalObjects()
   await rental_service.CreateBudgetHousingRentalObjects()
   #------------------end eindhoven----------------------------
+
 
   end_time = time.time()
   time_lapsed = end_time - start_time
