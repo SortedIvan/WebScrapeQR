@@ -13,8 +13,8 @@ from models.user import User, UserSalt
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "http://localhost:8080",
+    # "http://localhost",
+    # "http://localhost:8080",
     "http://localhost:3000"
 ]
 
@@ -22,15 +22,17 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"]
+    allow_methods=["GET", "POST", "HEAD", "OPTIONS"],
+    allow_headers=[
+      "Access-Control-Allow-Headers",
+      "Content-Type", "Authorization", 
+      "Access-Control-Allow-Origin","Set-Cookie"
+    ]
 )
-
 
 base.metadata.create_all(bind=engine)
 
 app.include_router(user_router.router)
-
 
 # --------------- UTILITY METHODS -------------------------
 def TestScheduler():
@@ -54,7 +56,6 @@ def ClearOutOldUserRentalConnections():
       return
 # -----------------------------------------------------------
 
-
 @app.on_event('startup')
 def init_data():
     sched = BackgroundScheduler()
@@ -64,7 +65,6 @@ def init_data():
     sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.add_job(ClearOutOldUserRentalConnections, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.start()
-
 
 @app.get("/")
 async def root():
@@ -85,7 +85,6 @@ async def test():
   await rental_service.CreateBrickvastRentalObjects()
   await rental_service.CreateBudgetHousingRentalObjects()
   #------------------end eindhoven----------------------------
-
 
   end_time = time.time()
   time_lapsed = end_time - start_time

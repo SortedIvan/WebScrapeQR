@@ -37,11 +37,6 @@ async def SendRentalPropertyEmails():
             max_price = user.max_price
             sqm = user.property_sqm
 
-            print(property_city)
-            print(min_price)
-            print(max_price)
-            print(sqm)
-
             if sqm == 0: # If has not specified the sqm requirements
                 listings_to_send = session.query(RentalListing) \
                 .filter(RentalListing.listingCity == cities[property_city]) \
