@@ -1,5 +1,5 @@
 import uuid
-from fastapi import APIRouter, HTTPException, Depends, Response
+from fastapi import APIRouter, HTTPException, Depends, Response, Request, Cookie
 from fastapi.responses import RedirectResponse
 from database.databaseConnection import sessionLocal
 from starlette.responses import JSONResponse
@@ -76,16 +76,33 @@ def login_user(response:Response,userdata: UserData):
         response.set_cookie(key="access_token", value=f"Bearer {token}", httponly=True,max_age=1800,expires=1800)
         return response
 
+@router.get("/api/user-accept-cookie")
+def AcceptCookies(answer: bool):
+    if answer:
+        fake_token = str(uuid.uuid4())
+        response =Response(status_code=200)
+        response.set_cookie(key="access_token", value = f"Bearer {fake_token}", httponly=True,max_age=1800,expires=1800)
+        return response
+    else:
+        return JSONResponse(status_code=401, content={"message": "Our service can't function without cookies."})
+
 @router.put("/api/login-success-test")
-async def LoginSuccesful(user_id = Depends(auth.auth_wrapper)):
-    print(user_id + " is this")
-    return {"message": "true"}
+async def LoginSuccesful(access_token: str = Cookie()):
+        print(access_token)
+        access_token = access_token.replace('Bearer ', '')
+        auth.decode_token(access_token)
+        return 'OK'
 
 @router.put("/api/set-preferences")
-async def SetUserPreferences(preference: UserPreference, user_id = Depends(auth.auth_wrapper)):
+async def SetUserPreferences(preference: UserPreference, access_token: str = Cookie()):
     with sessionLocal() as session:
         # First, get the user
         # TODO: Check token here
+        access_token = access_token.replace('Bearer ', '')
+        if access_token is None:
+            return JSONResponse(status_code=401, 
+                            content = {"message": "No access token found. User is not authorized."})
+        user_id = auth.decode_token(access_token)
         user = session.query(User).filter(User.id == user_id).first()
 
         if user is None:

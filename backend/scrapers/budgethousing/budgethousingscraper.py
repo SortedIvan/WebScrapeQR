@@ -57,6 +57,8 @@ def GetBudgetHousingListings():
 
         try:
             listing_sqm = listing_soup.find('div', attrs = {'class':'size'}).text
+            listing_sqm = re.findall('\d+', listing_sqm)
+            listing_sqm = int(''.join(listing_sqm))
         except:
             listing_sqm = 0
 

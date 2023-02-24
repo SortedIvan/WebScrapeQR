@@ -50,35 +50,53 @@ def GetFundaRentalListingLinks(city):
     funda_soups = ConvertFundaRentalSoups(city)
     links = []
     for soup in funda_soups:
-        search_content = soup.find('div', attrs = {'class': 'search-content-output'})
-        search_content_listings = search_content.find_all('li', attrs = {'class': 'search-result'})
+
+        try:
+            search_content = soup.find('div', attrs = {'class': 'search-content-output'})
+            search_content_listings = search_content.find_all('li', attrs = {'class': 'search-result'})
+        except:
+            print("Funda problem fetching listings")
+            continue
+
         for listing in search_content_listings:
-            #try:
-                if not listing:
-                    continue
+            if not listing:
+                print("Funda listing was null")
+                continue
+
+            img_obj = None
+            try:
                 img_obj = listing.find('div', attrs = {'class': 'search-result-media'}) \
-                    .find('div', attrs = {'class': 'search-result-image'}) \
                     .find('img')
-                
+            except:
+                print("Rental does not have regular images, trying promo")
+                try:
+                    img_obj = listing.find('div', attrs = {'class': 'search-result-media-promo'}) \
+                    .find('img')
+                except:
+                    print("Rental has no images at all")
+            
+            try:
                 if img_obj.has_attr('src'):
                     image_href = img_obj['src']
-                                                                
-                if listing.find('div', attrs = {'class': 'search-promolabel-new'}):
-                    listing_content = listing.find('div', attrs = {'class': 'search-result-content-promo'})
-                    listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
-                
-                    if image_href is None:
-                        links.append((listing_href,"Unavailable"))
-                    else: 
-                        links.append((listing_href,image_href))
-                    continue
-                
-                listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
+            except:
+                print("Problem with the images")
+                                                            
+            if listing.find('div', attrs = {'class': 'search-promolabel-new'}):
+                listing_content = listing.find('div', attrs = {'class': 'search-result-content-promo'})
                 listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+            
                 if image_href is None:
                     links.append((listing_href,"Unavailable"))
                 else: 
                     links.append((listing_href,image_href))
+                continue
+            
+            listing_content = listing.find('div', attrs = {'class': 'search-result-content'})
+            listing_href = "https://www.funda.nl" + listing_content.find('a', attrs = {'data-object-url-tracking': 'resultlist'}, href = True)['href']
+            if image_href is None:
+                links.append((listing_href,"Unavailable"))
+            else: 
+                links.append((listing_href,image_href))
                 
     return links
 
@@ -105,7 +123,7 @@ def GetFundaRentalListings(city):
 
             listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
             listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
-            listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).text.strip()    
+            listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).find('strong').text.strip()    
             listing_price = ''.join(filter(lambda i: i.isdigit(), listing_price))
 
             listing_living_details = []
@@ -200,5 +218,3 @@ def GetFundaRentalListings(city):
             print(e)
             print(link)
     return rental_listings
-
-        

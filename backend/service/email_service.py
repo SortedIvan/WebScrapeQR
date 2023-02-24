@@ -1,7 +1,7 @@
 from database.databaseConnection import sessionLocal
 from utility_data.userdata import SystemUser
 from models.user import User
-from models.listing import RentalListing, RentalListingUser
+from models.rental import RentalListing, RentalListingUser
 from fastapi_mail import FastMail, MessageType, MessageSchema
 from template.email_template import CreateCustomEmailTemplate
 from config.email_config import conf

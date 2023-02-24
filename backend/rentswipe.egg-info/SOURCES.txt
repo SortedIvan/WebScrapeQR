@@ -17,6 +17,8 @@ routers/user_router.py
 scheduler/__init__.py
 scheduler/scheduler.py
 scrapers/__init__.py
+scrapers/budgethousing/__init__.py
+scrapers/budgethousing/budgethousingscraper.py
 scrapers/funda/__init__.py
 scrapers/funda/fundascraper.py
 scrapers/huislijn/__init__.py

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from service.email_service import SendRentalPropertyEmails
-from models.listing import RentalListingUser, RentalListing
+from models.rental import RentalListingUser, RentalListing
 from apscheduler.schedulers.background import BackgroundScheduler
 from database.databaseConnection import engine, sessionLocal, base
 from routers import user_router
