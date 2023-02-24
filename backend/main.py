@@ -1,13 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from service.email_service import SendRentalPropertyEmails
-from models.rental import RentalListingUser, RentalListing
+
+from models.rental import OldRentalListing,RentalListingUser, RentalListing, BrickvastListing, BudgetHousingListing
+from models.rental import FriendlyHousing, FundaListing, HuislijnListing, HuurstuntListing
+
 from apscheduler.schedulers.background import BackgroundScheduler
 from database.databaseConnection import engine, sessionLocal, base
 from routers import user_router
 from utility.stopwatch import time_convert
 import service.rental_fetch_service as rental_service
 import time
+import datetime
+from datetime import date, timedelta
 from models.user import User, UserSalt
 
 app = FastAPI()
@@ -54,7 +59,40 @@ def ClearOutOldUserRentalConnections():
     except:
       #session.rollback()
       return
+
+LISTING_TYPES = [BrickvastListing, BudgetHousingListing, FriendlyHousing, FundaListing, HuislijnListing, HuurstuntListing]
+def MoveListingsToOld():
+  with sessionLocal() as session:
+    try:
+      for type in LISTING_TYPES:
+        today = datetime.datetime.today()
+        thirty_days_ago = today - timedelta(days=30)
+        listings_to_move = session.query(type).filter(type.dateCreated <= thirty_days_ago).all()
+        for i in range(len(listings_to_move)):
+          old_listing = OldRentalListing(
+            id = listings_to_move[i].id,
+            listingCity = listings_to_move[i].listingCity,
+            listingType = listings_to_move[i].listingType,
+            listingName = listings_to_move[i].listingName,
+            listingDate = listings_to_move[i].listingDate,
+            listingPrice = listings_to_move[i].listingPrice,
+            listingSqm = listings_to_move[i].listingSqm,
+            listingRooms = listings_to_move[i].listingRooms,
+            listingExtraInfo = listings_to_move[i].listingExtraInfo,
+            listingUrl = listings_to_move[i].listingUrl,
+            listingAdress = listings_to_move[i].listingAdress,
+            listingImageUrl = listings_to_move[i].listingImageUrl,
+            dateCreated = listings_to_move[i].dateCreated
+          )
+          session.delete(listings_to_move[i])
+          session.add(old_listing)
+          session.commit()  
+    except Exception as ex:
+      print("Something went wrong")
+      print(ex)
+
 # -----------------------------------------------------------
+
 
 @app.on_event('startup')
 def init_data():
@@ -65,6 +103,15 @@ def init_data():
     sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.add_job(ClearOutOldUserRentalConnections, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.start()
+
+@app.get("/deleteoldlistingstest")
+async def delete_old_listings_test():
+  start_time = time.time()
+  MoveListingsToOld()
+  end_time = time.time()
+  time_lapsed = end_time - start_time
+  print(time_convert(time_lapsed))
+  return {"message" : "Sucessful", "time_it_took":str(time_convert(time_lapsed))}
 
 @app.get("/")
 async def root():
