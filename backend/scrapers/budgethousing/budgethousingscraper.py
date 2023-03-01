@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from utility_data.rental_listing_data import RentalListing
+from utility.parser import ParseStringNumber
 import requests
 import re
 import uuid
@@ -37,26 +38,25 @@ def GetBudgetHousingListings():
             listing_title = "None"
 
         try:
-            listing_address = listing_soup.find('div', attrs = {'class': 'address'}).text
-            if not listing_address.find("Eindhoven"):
-                continue
+            listing_address = listing_soup.find('div', attrs = {'class': 'address'}).text.strip()
+            postcode = listing_address[:6]
         except:
             listing_address = "None"
 
         try:
-            listing_price = listing_soup.find('div', attrs = {'class':'property-price'}).text
+            listing_price = listing_soup.find('div', attrs = {'class':'property-price'}).text.strip()
             price_number_array = re.findall('\d+', listing_price)
             price_number = int(''.join(price_number_array))
         except:
             price_number = 0
 
         try:
-            listing_rooms = listing_soup.find('div', attrs = {'class':'rooms'}).text
+            listing_rooms = listing_soup.find('div', attrs = {'class':'rooms'}).text.strip()
         except:
             listing_rooms = "None"
 
         try:
-            listing_sqm = listing_soup.find('div', attrs = {'class':'size'}).text
+            listing_sqm = listing_soup.find('div', attrs = {'class':'size'}).text.strip()
             listing_sqm = re.findall('\d+', listing_sqm)
             listing_sqm = int(''.join(listing_sqm))
         except:
@@ -64,18 +64,37 @@ def GetBudgetHousingListings():
 
         rental = RentalListing(
         str(uuid.uuid4()),
-        "rental",
+        "Appartment",
         listing_title,
         "Today",
-        price_number,
-        listing_sqm,
-        listing_rooms,
+        ParseStringNumber(str(price_number)),
+        ParseStringNumber(str(listing_sqm)),
+        ParseStringNumber(str(listing_rooms)),
         "None",
         listing_url,
         listing_address,
         "eindhoven",
+        postcode,
         image_url
         )
         rentals.append(rental)
 
     return rentals
+
+
+listings = GetBudgetHousingListings()
+def print_all_listings():
+    for listing in listings:
+        print("------------------------------------------")
+        print(listing.listingType)
+        print(listing.listingName)
+        print(listing.listingDate)
+        print(listing.listingPrice)
+        print(listing.listingSqm)
+        print(listing.listingRooms)
+        print(listing.listingExtraInfo)
+        print(listing.listingUrl)
+        print(listing.listingAdress)
+        print(listing.listingPostcode)
+        print(listing.imageUrl)
+print_all_listings()

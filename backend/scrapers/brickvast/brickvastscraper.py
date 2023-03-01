@@ -108,22 +108,19 @@ def GetAllListings():
             print("listing is none")
     return final_listings
         
-def print_all_listings():
-    for listing in listings:
-        print("------------------------------------------")
-        print(listing.listingCity)
-        print(listing.listingType)
-        print(listing.listingCity)
-        print(listing.listingName)
-        print(listing.listingDate)
-        print(listing.listingPrice)
-        print(listing.listingSqm)
-        print(listing.listingRooms)
-        print(listing.listingExtraInfo)
-        print(listing.listingUrl)
-        print(listing.listingAdress)
-        print(listing.listingPostcode)
-        print(listing.imageUrl)
-
-listings = GetAllListings()
-print_all_listings()
+# def print_all_listings():
+#     for listing in listings:
+#         print("------------------------------------------")
+#         print(listing.listingCity)
+#         print(listing.listingType)
+#         print(listing.listingCity)
+#         print(listing.listingName)
+#         print(listing.listingDate)
+#         print(listing.listingPrice)
+#         print(listing.listingSqm)
+#         print(listing.listingRooms)
+#         print(listing.listingExtraInfo)
+#         print(listing.listingUrl)
+#         print(listing.listingAdress)
+#         print(listing.listingPostcode)
+#         print(listing.imageUrl)
