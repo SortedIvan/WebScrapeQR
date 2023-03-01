@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from utility_data.rental_listing_data import RentalListing
+from utility.parser import ParseDutchPostalCode
 import uuid
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
@@ -123,6 +124,8 @@ def GetFundaRentalListings(city):
 
             listing_title = listing_header_details.find('span', attrs={'class': 'object-header__title'}).text.strip()
             listing_subtitle = listing_header_details.find('span', attrs = {'class': 'object-header__subtitle fd-color-dark-3'}).text.strip()
+
+            listing_postal = ParseDutchPostalCode(listing_subtitle)
             listing_price = listing_header_details.find('div', attrs = {'class': 'object-header__pricing fd-text-size-l fd-flex--bp-m fd-align-items-center'}).find('strong').text.strip()    
             listing_price = ''.join(filter(lambda i: i.isdigit(), listing_price))
 
@@ -155,6 +158,7 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: {listing_living_details[2]}",
                         link[0],
                         listing_title + " " + listing_subtitle,
+                        listing_postal,
                         city,
                         link[1]
                     )
@@ -173,6 +177,7 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link[0],
                         listing_title + " " + listing_subtitle,
+                        listing_postal,
                         city,
                         link[1]
                     )
@@ -191,6 +196,7 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link[0],
                         listing_title + " " + listing_subtitle,
+                        listing_postal,
                         city,
                         link[1]
                     )
@@ -209,6 +215,7 @@ def GetFundaRentalListings(city):
                         f"Deposit: {listing_deposit} | Property size: Unavailable",
                         link[0],
                         listing_title + " " + listing_subtitle,
+                        listing_postal,
                         city,
                         link[1]
                     )
@@ -218,3 +225,18 @@ def GetFundaRentalListings(city):
             print(e)
             print(link)
     return rental_listings
+
+listings = GetFundaRentalListings("amsterdam")
+for listing in listings:
+    print("------------------------------------------")
+    print(listing.listingType)
+    print(listing.listingName)
+    print(listing.listingDate)
+    print(listing.listingPrice)
+    print(listing.listingSqm)
+    print(listing.listingRooms)
+    print(listing.listingExtraInfo)
+    print(listing.listingUrl)
+    print(listing.listingAdress)
+    print(listing.listingPostcode)
+    print(listing.imageUrl)

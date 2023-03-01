@@ -82,19 +82,19 @@ def GetBudgetHousingListings():
     return rentals
 
 
-listings = GetBudgetHousingListings()
-def print_all_listings():
-    for listing in listings:
-        print("------------------------------------------")
-        print(listing.listingType)
-        print(listing.listingName)
-        print(listing.listingDate)
-        print(listing.listingPrice)
-        print(listing.listingSqm)
-        print(listing.listingRooms)
-        print(listing.listingExtraInfo)
-        print(listing.listingUrl)
-        print(listing.listingAdress)
-        print(listing.listingPostcode)
-        print(listing.imageUrl)
-print_all_listings()
+# listings = GetBudgetHousingListings()
+# def print_all_listings():
+#     for listing in listings:
+#         print("------------------------------------------")
+#         print(listing.listingType)
+#         print(listing.listingName)
+#         print(listing.listingDate)
+#         print(listing.listingPrice)
+#         print(listing.listingSqm)
+#         print(listing.listingRooms)
+#         print(listing.listingExtraInfo)
+#         print(listing.listingUrl)
+#         print(listing.listingAdress)
+#         print(listing.listingPostcode)
+#         print(listing.imageUrl)
+# print_all_listings()
