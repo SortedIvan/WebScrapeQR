@@ -1,17 +1,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import {createRouter, createWebHistory} from 'vue-router'  
-import HomeComponent from './components/HomeComponent.vue';
+import HomeComponent from './pages/HomeComponent.vue';
+import ListingComponent from './components/ListingsComponent.vue'
 
 // Vuetify
 import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
 
@@ -21,6 +22,11 @@ const routes = [
     name: 'HomeComponent',
     component: HomeComponent,
   },
+  {
+    path: '/listings',
+    name: "ListingComponent",
+    component: ListingComponent
+  }
 ]
 
 const router = createRouter({

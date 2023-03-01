@@ -97,11 +97,12 @@ def MoveListingsToOld():
 @app.on_event('startup')
 def init_data():
     sched = BackgroundScheduler()
-    #sched.add_job(TestScheduler, 'cron', second='*/5')
-
     #Every day at 12AM, delete all instances of listings from the database and make space for new ones
+    sched.add_job(MoveListingsToOld, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.add_job(ClearOutOldRentalListings, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
     sched.add_job(ClearOutOldUserRentalConnections, 'cron', day_of_week = 'mon-sun', hour = 23, minute = 59)
+
+    #TODO: Add fetching new listings every 15-20 minutes
     sched.start()
 
 @app.get("/deleteoldlistingstest")
